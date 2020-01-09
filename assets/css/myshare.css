@@ -1,0 +1,82 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  padding-top: 50px;
+  margin-bottom: 30px;
+}
+
+body > nav > div > div.navbar-header > a{
+		padding-top: 8px;
+		padding-bottom: 0px;
+}
+#breadcrumb.container-fluid{
+	padding:0px 0px;
+}
+
+
+body > nav > div > div.navbar-header > a > span{
+		font-size: 40px;
+		padding-left:0px;
+		font-weight: 300;
+		padding-top: -8px;
+}
+
+#category > ul{
+	margin: 0px;
+	padding:0px;
+}
+#category > ul > li {
+	list-style: none;
+}
+
+@media (min-width: 768px){
+	body {
+	  padding-top: 80px;
+	  margin-bottom: 30px;
+	}
+	.nav{
+		min-height: 80px;
+	}
+	.container-fluid{
+		padding: 0px 80px;
+	}
+	#navbar > ul > li > a{
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	body > nav > div > div.navbar-header > a{
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	body > nav > div > div.navbar-header > a > span{
+		font-size: 40px;
+		padding-left:15px;
+		padding-top: 8px;
+		font-weight: 300;
+	}
+	body > nav > div > div.navbar-header > a > p{
+		padding-top: -50px;
+	}
+	.breadcrumb{
+		padding-left: 80px;
+		padding-right: 80px;
+	}
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  background-color: #f5f5f5;
+  padding-top: 8px;
+  font-size: 12px;
+}
+body > footer > div > p > a {
+	color: #000000;
+}
+
+
