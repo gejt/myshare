@@ -40,7 +40,7 @@ body > nav > div > div.navbar-header > a > span{
 		min-height: 80px;
 	}
 	.container-fluid{
-		padding: 0px 120px;
+		padding: 0px 180px;
 	}
 	#navbar > ul > li > a{
 		padding-top: 30px;
@@ -60,8 +60,8 @@ body > nav > div > div.navbar-header > a > span{
 		padding-top: -50px;
 	}
 	.breadcrumb{
-		padding-left: 120px;
-		padding-right: 120px;
+		padding-left: 180px;
+		padding-right: 180px;
 	}
 }
 
