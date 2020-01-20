@@ -1,0 +1,9 @@
+# Site
+name: '我的分享'
+description: '我的分享'
+logo: 'favicon.ico'
+favicon: 'favicon.ico'
+baseurl: ''
+email: '852442493@qq.com'
+author: 'GEJT'
+authorDescp: 'A Java Developer'
