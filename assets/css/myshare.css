@@ -66,6 +66,13 @@ body > nav > div > div.navbar-header > a > span{
 	}
 }
 
+.mypage {
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  padding-top: 8px;
+}
+
 .footer {
   position: absolute;
   bottom: 0;

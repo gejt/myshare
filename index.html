@@ -7,6 +7,7 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
     </div>'
 ---
 <script type="text/javascript">
+  var showList = [];
   function getQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
         var r = decodeURI(window.location.search).substr(1).match(reg); 
@@ -38,7 +39,10 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
     }
     return html;
   }
-  function showPage(showList,pageNo){
+  function showPage(pageNo){
+    showPage(pageNo);
+  }
+  function showPage(pageNo){
       var pageSize = 10;
       var total = showList.length;
       var pages = Math.floor(total%pageSize==0?(total/pageSize):(total/pageSize+1));
@@ -49,11 +53,30 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
       var end = pageNo*pageSize;
       end = end>(total)?(total):end;
       var record = showList.slice(start,end);
-      $("#list").html(buildHtml(record));
+      var html = buildHtml(record);
+      if(showList.length!=0){
+        html += '<nav><ul class="pager">';
+      
+          if(pageNo==1){
+            html += '<li class="previous disabled"><a href="#">上一页</a></li>';
+          }else{
+            html += '<li class="previous"><a href="javascript:showPage('+(pageNo-1)+')">上一页</a></li>';
+          }
+
+          if(pageNo==pages){
+            html += '<li class="next disabled"><a href="#">下一页</a></li>';
+          }else{
+            html += '<li class="next"><a href="javascript:showPage('+(pageNo+1)+')">下一页</a></li>';
+          }
+
+       html += '</ul> </nav>';
+      }
+      
+      $("#list").html(html);
   }
   
   var list = [];
-  var showList = [];
+ 
   {% for post in site.posts %}
   list.push({
         "title":"{{post.title}}"
@@ -70,7 +93,7 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
   }else{
     showList = list;
   }
-  showPage(showList,1);
+  showPage(1);
 </script>
 
 

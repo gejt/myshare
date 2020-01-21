@@ -12,7 +12,7 @@ permalink: /markdown/01
 breadcrumb: '<div id="breadcrumb" class="container-fluid">
         <ol class="breadcrumb">
               <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp主页</a></li>
-              <li class="active"><a href="/?cat=Markdown">Markdown</a></li>
+              <li class="active"><a class="category" href="/?cat=Markdown">Markdown</a></li>
         </ol>
     </div>'
 ---
