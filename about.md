@@ -4,7 +4,7 @@ title: 关于网站
 breadcrumb: '<div id="breadcrumb" class="container-fluid">
         <ol class="breadcrumb">
               <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp主页</a></li>
-              <li class="active">联系我</li>
+              <li class="active">关于网站</li>
         </ol>
     </div>'
 ---

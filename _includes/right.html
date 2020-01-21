@@ -1,5 +1,6 @@
-                <div class="panel panel-default">
-                  <div class="panel-heading">所有主题</div>
+
+                 <div class="panel panel-default">
+                  <div class="panel-heading">主题列表</div>
                   <div id="category" class="panel-body">
                     <ul>
                       {% for category in site.categories %}
@@ -8,11 +9,13 @@
                     </ul>
                   </div>
                 </div>
+                
                 <div class="panel panel-default">
                   <div class="panel-body">
                       <a href="#">
                         <img src="{{site.url}}/assets/img/profile.png" class="img-responsive" alt="我的头像">
                       </a>
+
                       <h4>{{site.author}}</h4>
                       <p>{{site.authorDescp}}</p>
                       <a href="mailto:{{site.email}}"><span class="glyphicon glyphicon-envelope">&nbsp</span>852442493</a>
