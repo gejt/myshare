@@ -33,7 +33,11 @@
 
   <body>
   	{% include header.html %}    
-    {{page.breadcrumb}}
+    <div id="breadcrumb" class="container-fluid">
+        <ol class="breadcrumb">
+              <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp主页</a></li>
+        </ol>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9 col-sm-8 col-sm-xs-12">
@@ -47,6 +51,13 @@
 
    	{% include footer.html %}
    	{% include js.html %}
-   
+    <script type="text/javascript">
+            var cat = '{{page.category}}';
+            if(cat!=''){
+                var breadcrumb = '<li class="active category"><a href="/?cat='+cat+'">'+cat+'</a></li>';
+                $("#breadcrumb ol").append(breadcrumb);
+            }
+    </script>
+    
   </body>
 </html>

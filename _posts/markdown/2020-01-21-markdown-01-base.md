@@ -8,13 +8,6 @@ tags: [markdown]
 dateTime: 2019年12月26日
 excerpt: 本文介绍了Markdown语法基础知识，能让我们快速上手markdown,编写自己的文章。
 permalink: /markdown/01
-
-breadcrumb: '<div id="breadcrumb" class="container-fluid">
-        <ol class="breadcrumb">
-              <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp主页</a></li>
-              <li class="active"><a class="category" href="/?cat=Markdown">Markdown</a></li>
-        </ol>
-    </div>'
 ---
 
 ### Markdown语法知识
