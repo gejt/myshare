@@ -3,7 +3,7 @@
                   <div id="category" class="panel-body">
                     <ul>
                       {% for category in site.categories %}
-                      <li><a href="{{site.url}}?cat={{category | first}}">{{category | first}}</a><span class="badge pull-right">{{category | last | size}}</span></li>
+                      <li><a class="category" href="{{site.url}}?cat={{category | first}}">{{category | first}}</a><span class="badge pull-right">{{category | last | size}}</span></li>
                       {% endfor %}
                     </ul>
                   </div>

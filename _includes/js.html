@@ -1,10 +1,10 @@
  <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/vendor/jquery.min.js"></script>
-    <script src="assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="{{site.url}}/assets/js/vendor/jquery.min.js"></script>
+    <script src="{{site.url}}/assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{{site.url}}/assets/js/ie10-viewport-bug-workaround.js"></script>
     <script>
       var _hmt = _hmt || [];
       (function() {
@@ -28,10 +28,15 @@
             $(".blog-post").hide();
             $("."+cat).show();
         }
+        $("a.category").click(function(e){
+            e.preventDefault();
+            var url = $(this).attr("href");
+            window.location=encodeURI(url);
+        });
       });
-      function getQueryString(name) { 
+      function getQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
-        var r = window.location.search.substr(1).match(reg); 
+        var r = decodeURI(window.location.search).substr(1).match(reg); 
         if (r != null) return unescape(r[2]); return null; 
       } 
       </script>
