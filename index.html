@@ -6,14 +6,74 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
         </ol>
     </div>'
 ---
-{% for post in site.posts %}
-<div class="blog-post {{post.category}}">
-  <h2 class="blog-post-title"><a href="{{post.url}}">{{post.title}}</a></h2>
-  <p class="blog-post-meta">{{post.dateTime}} by <a href="contact.html">{{post.author}}</a>&nbsp&nbsp
-    <a class="category" href="{{site.url}}?cat={{post.category}}" class="label label-success pull-right">{{post.category}}</a>
-  </p>
-  <p>{{ post.excerpt }}</p>
-  <hr>
-</div>
-{% endfor %}
+<script type="text/javascript">
+  function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+        var r = decodeURI(window.location.search).substr(1).match(reg); 
+        if (r != null) return unescape(r[2]); return null; 
+  }
+  function filterList(list,cat){
+    var showList = [];
+    for(i in list){
+        if(list[i].category==cat){
+          showList.push(list[i]);
+        }
+    }
+    return showList;
+  }
+  function buildHtml(record) {
+    var html = "";
+    if(record){
+      for(i in record){
+        var post = record[i];
+        html += '<div class="blog-post">'
+         + '<h2 class="blog-post-title"><a href="'+post.url+'">'+post.title+'</a></h2>'
+          +'<p class="blog-post-meta">'+post.dateTime+' by <a href="/contact">'+post.author+'</a>&nbsp&nbsp'
+            +'<a class="label label-success pull-right category" href="/?cat='+post.category+'" class="label label-success pull-right">'+post.category+'</a>'
+          +'</p>'
+          +'<p>'+post.excerpt+'</p>'
+          +'<hr>'
+        +'</div>';
+      }
+    }
+    return html;
+  }
+  function showPage(showList,pageNo){
+      var pageSize = 10;
+      var total = showList.length;
+      var pages = Math.floor(total%pageSize==0?(total/pageSize):(total/pageSize+1));
+      pageNo = pageNo<0?0:pageNo;
+      pageNo = pageNo>pages?pages:pageNo;
+      var start = (pageNo-1)*pageSize;
+      start = start<0?0:start;
+      var end = pageNo*pageSize;
+      end = end>(total)?(total):end;
+      var record = showList.slice(start,end);
+      $("#list").html(buildHtml(record));
+  }
+  
+  var list = [];
+  var showList = [];
+  {% for post in site.posts %}
+  list.push({
+        "title":"{{post.title}}"
+        ,"dateTime":"{{post.dateTime}}"
+        ,"author":"{{post.author}}"
+        ,"category":"{{post.category}}"
+        ,"excerpt":'{{post.excerpt}}'
+        ,"url":'{{post.url}}'
+  });
+  {% endfor %}
+  var cat = getQueryString("cat");
+  if(null!=cat){
+    showList = filterList(list,cat);
+  }else{
+    showList = list;
+  }
+  showPage(showList,1);
+</script>
+
+
+
+
             
