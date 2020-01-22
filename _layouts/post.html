@@ -33,7 +33,7 @@
 
   <body>
   	{% include header.html %}    
-    <div id="breadcrumb" class="container-fluid">
+    <div id="breadcrumb" class="container-fluid" id="top">
         <ol class="breadcrumb">
               <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp主页</a></li>
         </ol>
@@ -41,7 +41,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9 col-sm-8 col-sm-xs-12">
-              <h3  id="top">{{page.title}}</h3>
+              <h3>{{page.title}}</h3>
               <p><a href="/contact">{{page.author}}</a> {{page.dateTime}} <a class="label label-success pull-right category" href="/?cat={{page.category}}" class="label label-success pull-right">{{page.category}}</a></p>
               <hr>
               {{content}}
