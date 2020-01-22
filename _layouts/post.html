@@ -41,7 +41,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9 col-sm-8 col-sm-xs-12">
-              {{content}}       
+              <h3  id="top">{{page.title}}</h3>
+              <p><a href="/contact">{{page.author}}</a> {{page.dateTime}} <a class="label label-success pull-right category" href="/?cat={{page.category}}" class="label label-success pull-right">{{page.category}}</a></p>
+              <hr>
+              {{content}}
+              <a href="#top" class="pull-right">已经是结尾了~点击我回到顶部</a> 
+              <hr>
             </div>
             <div class="col-md-3  col-sm-4 col-sm-xs-12">
                 {% include right.html %}
