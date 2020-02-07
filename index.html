@@ -43,7 +43,7 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
     showPage(pageNo);
   }
   function showPage(pageNo){
-      var pageSize = 10;
+      var pageSize = 5;
       var total = showList.length;
       var pages = Math.floor(total%pageSize==0?(total/pageSize):(total/pageSize+1));
       pageNo = pageNo<0?0:pageNo;
