@@ -64,6 +64,9 @@ body > nav > div > div.navbar-header > a > span{
 		padding-left: 40px;
 		padding-right: 40px;
 	}
+	#navbar > form{
+		padding-top:15px;
+	}
 }
 
 .mypage {

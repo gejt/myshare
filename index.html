@@ -22,6 +22,37 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
     }
     return showList;
   }
+  function searchList(list,search){
+      var resultList = [];
+      var pattern = new RegExp(search, 'i');
+      for(i in list){
+        // if(list[i].title.search(pattern)!=-1
+        //   ||list[i].excerpt.search(pattern)!=-1){
+        //   list[i].title = list[i].title.replace(pattern,'<span class="text-danger">'+search+'</span>',"i");
+        //   list[i].excerpt = list[i].excerpt.replace(pattern,'<span class="text-danger">'+search+'</span>',"i");
+        //   resultList.push(list[i]);
+        // 
+        //
+        var match=[];
+        var titMatch = list[i].title.match(pattern);
+        var exMatch = list[i].excerpt.match(pattern);
+        if(titMatch!=null){
+          match.push(titMatch);
+        }
+        if(exMatch!=null){
+          match.push(exMatch);
+        }
+        if(match!=null&&match.length>0){
+            for(j in match){
+              list[i].title = list[i].title.replace(match[j],'<span class="text-danger">'+match[j]+'</span>',"i");
+              list[i].excerpt = list[i].excerpt.replace(match[j],'<span class="text-danger">'+match[j]+'</span>',"i");
+            }
+            resultList.push(list[i]);
+        }
+      }
+      return resultList;
+  }
+
   function buildHtml(record) {
     var html = "";
     if(record){
@@ -37,11 +68,12 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
         +'</div>';
       }
     }
+    if(html==""){
+      html = '<div class="alert alert-dange text-center" role="alert">暂无内容</div>';
+    }
     return html;
   }
-  function showPage(pageNo){
-    showPage(pageNo);
-  }
+  
   function showPage(pageNo){
       var pageSize = 5;
       var total = showList.length;
@@ -56,7 +88,6 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
       var html = buildHtml(record);
       if(showList.length!=0){
         html += '<nav><ul class="pager">';
-      
           if(pageNo==1){
             html += '<li class="previous disabled"><a href="#">上一页</a></li>';
           }else{
@@ -92,6 +123,10 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
     showList = filterList(list,cat);
   }else{
     showList = list;
+  }
+  var search = getQueryString("s");
+  if(search!=null&&search!=""){
+      showList = searchList(showList,search);
   }
   showPage(1);
 </script>
