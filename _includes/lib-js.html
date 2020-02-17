@@ -5,34 +5,4 @@
     <script src="{{site.url}}/assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{site.url}}/assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script>
-      (function ($) {
-           $.getUrlParam = function (name) {
-           var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");//构造一个含有目标参数的正则表达式对象
-           var r = window.location.search.substr(1).match(reg);//匹配目标参数
-           if (r != null) return unescape(r[2]); return null;//返回参数值
-       }
-       })(jQuery);
-      $(function(){
-        var cat = getQueryString("cat");
-        if(null!=cat){
-            var breadcrumb = '<li class="active">'+cat+'</li>';
-            $("#breadcrumb ol").append(breadcrumb);
-        }
-        $("a.category").click(function(e){
-            e.preventDefault();
-            var url = $(this).attr("href");
-            window.location=encodeURI(url);
-        });
-        $("img").addClass("img-responsive");
-        $("table").addClass("table table-bordered table-striped");
-      });
-      function getQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
-        var r = decodeURI(window.location.search).substr(1).match(reg); 
-        if (r != null) return unescape(r[2]); return null; 
-      }
-      $("#btnSearch").click(function(){
-        window.location.href="{{site.url}}/?s="+$("#iptSearch").val();
-      });
-      </script>
+    
