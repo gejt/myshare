@@ -1,6 +1,6 @@
 # Site
-name: 'Share 云'
-description: 'Share-早知道，早分享，分享带来快乐!'
+name: '我的分享'
+description: '早知道，早分享，分享带来快乐!'
 logo: 'favicon.ico'
 favicon: 'favicon.ico'
 baseurl: ''
