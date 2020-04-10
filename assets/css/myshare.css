@@ -53,6 +53,21 @@ body > nav > div > div.navbar-header > a > span{
 .form-control {
 	min-width: 300px;
 }
+a{
+	color: #333333;
+}
+a:hover{
+	color: #0AA770;
+}
+a：visited{
+	color: #0AA770;
+}
+.glyphicon-link{
+	color: #0AA770;
+}
+span.badge {
+	background-color: #D9534F;
+}
 #category > ul{
 	margin: 0px;
 	padding:0px;
