@@ -68,12 +68,25 @@ a：visited{
 span.badge {
 	background-color: #D9534F;
 }
+img.auth-info{
+	width:40px;
+	height: 40px;
+}
+
+.panel{
+	border:0px;
+}
+.panel-heading {
+    border-bottom: 0px solid transparent; 
+}
+
 #category > ul{
 	margin: 0px;
 	padding:0px;
 }
 #category > ul > li {
 	list-style: none;
+	height: 30px;
 }
 
 @media (min-width: 768px){
@@ -85,7 +98,7 @@ span.badge {
 		min-height: 80px;
 	}
 	.container-fluid{
-		padding: 0px 40px;
+		padding: 0px 200px;
 	}
 	#navbar > ul > li > a{
 		padding-top: 30px;
@@ -105,8 +118,8 @@ span.badge {
 		padding-top: -50px;
 	}
 	.breadcrumb{
-		padding-left: 40px;
-		padding-right: 40px;
+		padding-left: 200px;
+		padding-right: 200px;
 	}
 	#navbar > form{
 		padding-top:15px;

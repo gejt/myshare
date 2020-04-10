@@ -35,18 +35,26 @@
   	{% include header.html %}    
     <div id="breadcrumb" class="container-fluid" id="top">
         <ol class="breadcrumb">
-              <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp主页</a></li>
+              <li><a href="/index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp主页</a></li>
         </ol>
     </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9 col-sm-8 col-sm-xs-12">
-              <h3>{{page.title}} 
+              <h2>{{page.title}} 
               {%if page.originAddress!=null %}
-              <a alt="原文地址" href="{{page.originAddress}}" target="_blank" class="origin-link"><small class="glyphicon glyphicon-link"></small></a>
+              <a alt="原文地址" href="{{page.originAddress}}" target="_blank" class="origin-link pull-right"><small class="glyphicon glyphicon-link"></small></a>
               {% endif %}
-              </h3>
-              <p><a href="/contact.html">{{page.author}}</a> {{page.dateTime}} <a class="label label-danger pull-right category" href="/index.html?cat={{page.category}}" class="label label-success pull-right">{{page.category}}</a></p>
+              </h2>
+              <div class="row">
+                <br>
+                <div class="col-md-1 col-sm-1 col-sm-xs-1 ">
+                  <img src="/assets/img/head.jpg" class="img-circle auth-info"/>
+                </div>
+                <div class="col-md-11 col-sm-11 col-sm-xs-11">
+                  <a href="/contact.html">{{page.author}}</a><br>发表于： {{page.dateTime}}
+                </div>
+              </div>
               <hr>
               <blockquote>{{page.excerpt}}</blockquote>
               {{content}}
@@ -55,7 +63,7 @@
               <p  class="text-center"><a href="#top">文章结束~点我回到顶部</a></p>
             <div id="SOHUCS" ></div> 
             </div>
-            <div class="col-md-3  col-sm-4 col-sm-xs-12">
+            <div class="col-md-3  col-sm-4 col-sm-xs-12" id="right-side">
                 {% include right.html %}
             </div>
         </div>
@@ -71,6 +79,34 @@
                 var breadcrumb = '<li class="active category"><a href="/index.html?cat='+cat+'">'+cat+'</a></li>';
                 $("#breadcrumb ol").append(breadcrumb);
             }
+            var catlist = [];
+ 
+            {% for post in site.posts %}
+              {%if page.category==post.category %}
+              catlist.push({
+                    "title":"{{post.title}}"
+                    ,"dateTime":"{{post.dateTime}}"
+                    ,"author":"{{post.author}}"
+                    ,"category":"{{post.category}}"
+                    ,"excerpt":'{{post.excerpt}}'
+                    ,"url":'{{post.url}}'
+              });
+              {% endif %}
+            {% endfor %}
+            if(catlist.length>0){
+              var relateHtml = "<div class='panel panel-default'>"
+                      +"<div class='panel-heading'>相关文章</div>"
+                      +"<div id='category' class='panel-body'>"
+                      +"<ul>";
+
+              for(i in catlist){
+                  relateHtml+="<li><a class='category' href='"+catlist[i].url+".html'>"+catlist[i].title+"</a></li>";
+              }
+
+              relateHtml=relateHtml+"</ul></div></div>";
+              $("#right-side").prepend(relateHtml);
+            }
+           
     </script>
     <!--PC和WAP自适应版-->
 
