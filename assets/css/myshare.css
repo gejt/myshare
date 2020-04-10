@@ -24,6 +24,50 @@ body > nav > div > div.navbar-header > a > span{
 		padding-top: -8px;
 }
 
+.navbar-inverse {
+    background-color: #0AA770;
+    border-color: #0AA770;
+
+}
+.navbar-inverse .navbar-nav>li>a {
+    font-size: 18px;
+    color: #FFFFFF;
+}
+.navbar-inverse .navbar-brand {
+    color: #FFFFFF;
+}
+.navbar-inverse .navbar-toggle {
+    border-color: #FFFFFF;
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #0AA770;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #0AA770;
+}
+.btn-success {
+    color: #fff;
+    background-color: #118860;
+    border-color: #2C9B74;
+}
+.form-control {
+	min-width: 300px;
+}
+a{
+	color: #333333;
+}
+a:hover{
+	color: #0AA770;
+}
+a：visited{
+	color: #0AA770;
+}
+.glyphicon-link{
+	color: #0AA770;
+}
+span.badge {
+	background-color: #D9534F;
+}
 #category > ul{
 	margin: 0px;
 	padding:0px;

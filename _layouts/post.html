@@ -43,7 +43,7 @@
             <div class="col-md-9 col-sm-8 col-sm-xs-12">
               <h3>{{page.title}} 
               {%if page.originAddress!=null %}
-              <a alt="原文地址" href="{{page.originAddress}}" target="_blank"><small class="glyphicon glyphicon-link"></small></a>
+              <a alt="原文地址" href="{{page.originAddress}}" target="_blank" class="origin-link"><small class="glyphicon glyphicon-link"></small></a>
               {% endif %}
               </h3>
               <p><a href="/contact.html">{{page.author}}</a> {{page.dateTime}} <a class="label label-danger pull-right category" href="/index.html?cat={{page.category}}" class="label label-success pull-right">{{page.category}}</a></p>

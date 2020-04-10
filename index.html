@@ -91,13 +91,13 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
           if(pageNo==1){
             html += '<li class="previous disabled"><a href="#">上一页</a></li>';
           }else{
-            html += '<li class="previous"><a href="javascript:showPage('+(pageNo-1)+')">上一页</a></li>';
+            html += '<li class="previous"><a href="javascript:goPage('+(new Number(pageNo)-1)+')">上一页</a></li>';
           }
 
           if(pageNo==pages){
             html += '<li class="next disabled"><a href="#">下一页</a></li>';
           }else{
-            html += '<li class="next"><a href="javascript:showPage('+(pageNo+1)+')">下一页</a></li>';
+            html += '<li class="next"><a href="javascript:goPage('+(new Number(pageNo)+1)+')">下一页</a></li>';
           }
 
        html += '</ul> </nav>';
@@ -105,6 +105,16 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
       
       $("#list").html(html);
   }
+
+function goPage(page){
+  var href = "/index.html?p="+page;
+  var search = getQueryString("s");
+  if(search){
+      href = href + "&s="+search;
+  }
+  window.location.href = encodeURI(href);
+}
+
   
   var list = [];
  
@@ -127,8 +137,13 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
   var search = getQueryString("s");
   if(search!=null&&search!=""){
       showList = searchList(showList,search);
+      $("#iptSearch").val(search);
   }
-  showPage(1);
+  var page = getQueryString("p");
+  if(!page){
+    page = 1;
+  }
+  showPage(page);
 </script>
 
 
