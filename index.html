@@ -112,6 +112,10 @@ function goPage(page){
   if(search){
       href = href + "&s="+search;
   }
+  var cat = getQueryString("cat");
+  if(cat){
+    href = href + "&cat="+cat;
+  }
   window.location.href = encodeURI(href);
 }
 
