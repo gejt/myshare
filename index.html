@@ -2,7 +2,7 @@
 layout: default
 breadcrumb: '<div id="breadcrumb" class="container-fluid">
         <ol class="breadcrumb">
-              <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp主页</a></li>
+              <li><a href="/index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp主页</a></li>
         </ol>
     </div>'
 ---
@@ -59,9 +59,9 @@ breadcrumb: '<div id="breadcrumb" class="container-fluid">
       for(i in record){
         var post = record[i];
         html += '<div class="blog-post">'
-         + '<h2 class="blog-post-title"><a href="'+post.url+'">'+post.title+'</a></h2>'
-          +'<p class="blog-post-meta">'+post.dateTime+' by <a href="/contact">'+post.author+'</a>&nbsp&nbsp'
-            +'<a class="label label-danger pull-right category" href="/?cat='+post.category+'">'+post.category+'</a>'
+         + '<h2 class="blog-post-title"><a href="'+post.url+'.html">'+post.title+'</a></h2>'
+          +'<p class="blog-post-meta">'+post.dateTime+' by <a href="/contact.html">'+post.author+'</a>&nbsp&nbsp'
+            +'<a class="label label-danger pull-right category" href="/index.html?cat='+post.category+'">'+post.category+'</a>'
           +'</p>'
           +'<p>'+post.excerpt+'</p>'
           +'<hr>'

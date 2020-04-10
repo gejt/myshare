@@ -12,17 +12,17 @@
     <title>{{site.name}}-{{page.title}}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{site.url}}/assets/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="{{site.url}}/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{site.url}}/assets/css/myshare.css" rel="stylesheet">
+    <link href="/assets/css/myshare.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="{{site.url}}//assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="{{site.url}}/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="/assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -46,7 +46,7 @@
               <a alt="原文地址" href="{{page.originAddress}}" target="_blank"><small class="glyphicon glyphicon-link"></small></a>
               {% endif %}
               </h3>
-              <p><a href="/contact">{{page.author}}</a> {{page.dateTime}} <a class="label label-danger pull-right category" href="/?cat={{page.category}}" class="label label-success pull-right">{{page.category}}</a></p>
+              <p><a href="/contact.html">{{page.author}}</a> {{page.dateTime}} <a class="label label-danger pull-right category" href="/index.html?cat={{page.category}}" class="label label-success pull-right">{{page.category}}</a></p>
               <hr>
               <blockquote>{{page.excerpt}}</blockquote>
               {{content}}
@@ -68,7 +68,7 @@
     <script type="text/javascript">
             var cat = '{{page.category}}';
             if(cat!=''){
-                var breadcrumb = '<li class="active category"><a href="/?cat='+cat+'">'+cat+'</a></li>';
+                var breadcrumb = '<li class="active category"><a href="/index.html?cat='+cat+'">'+cat+'</a></li>';
                 $("#breadcrumb ol").append(breadcrumb);
             }
     </script>
