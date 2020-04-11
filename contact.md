@@ -1,15 +1,15 @@
 ---
 layout: post
-title: 作者是谁？
+title: 联系作者
 category:  联系作者
 author: GEJT
 dateTime: "2020年4月10日"
-excerpt: A 不甘于寂寞的 Java Developer!!!
+excerpt: A Java Developer
 ---
-QQ邮箱
+### QQ邮箱
 
-[852442493@qq.com](mailto:852442493@qq.com)
+### [852442493@qq.com](mailto:852442493@qq.com)
 
-添加微信
+### 添加微信
 
 ![](/assets/img/wx.jpg)

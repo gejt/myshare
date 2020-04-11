@@ -40,7 +40,7 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-9 col-sm-8 col-sm-xs-12">
+            <div class="col-md-9 col-sm-8 col-sm-xs-12 doc">
               <h2>{{page.title}} 
               {%if page.originAddress!=null %}
               <a alt="原文地址" href="{{page.originAddress}}" target="_blank" class="origin-link pull-right"><small class="glyphicon glyphicon-link"></small></a>
@@ -48,17 +48,16 @@
               </h2>
               <div class="row">
                 <br>
-                <div class="col-md-1 col-sm-1 col-sm-xs-1 ">
+        <!--         <div class="col-md-1 col-sm-1 col-sm-xs-1 ">
                   <img src="/assets/img/head.jpg" class="img-circle auth-info"/>
-                </div>
+                </div> -->
                 <div class="col-md-11 col-sm-11 col-sm-xs-11">
-                  <a href="/contact.html">{{page.author}}</a><br>发表于： {{page.dateTime}}
+                  <a href="/contact.html">{{page.author}}</a>&nbsp&nbsp&nbsp&nbsp发表于： {{page.dateTime}}
                 </div>
               </div>
               <hr>
               <blockquote>{{page.excerpt}}</blockquote>
               {{content}}
-              <br>
               <hr>
               <p  class="text-center"><a href="#top">文章结束~点我回到顶部</a></p>
             <div id="SOHUCS" ></div> 
@@ -116,7 +115,7 @@
 <script type="text/javascript"> 
 (function(){ 
 var appid = 'cyuMxf7e0'; 
-var conf = 'prod_5d3c707709ef44ef642bc14097e962a0'; 
+var conf = 'prod_7393b4533fccff254d715ba56238451c'; 
 var width = window.innerWidth || document.documentElement.clientWidth; 
 if (width < 960) { 
 window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
