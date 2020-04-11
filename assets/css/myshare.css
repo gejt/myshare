@@ -79,6 +79,9 @@ img.auth-info{
 .panel-heading {
     border-bottom: 0px solid transparent; 
 }
+hr{
+ border:1px dashed #EBEEF3
+}
 
 #category > ul{
 	margin: 0px;
