@@ -94,6 +94,9 @@
               {% endif %}
             {% endfor %}
             if(catlist.length>0){
+              catlist = catlist.sort(function(item1,item2){
+                return item1.url.substring(item1.url.lastIndexOf("/")+1,item1.url.length)-item2.url.substring(item2.url.lastIndexOf("/")+1,item2.url.length);
+              });
               var relateHtml = "<div class='panel panel-default'>"
                       +"<div class='panel-heading'>相关文章</div>"
                       +"<div id='category' class='panel-body'>"
