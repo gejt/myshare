@@ -12,4 +12,4 @@ excerpt: A Java Developer
 
 ### 添加微信
 
-![](/assets/img/wx.jpg)
+![](/img/wx.jpg)
