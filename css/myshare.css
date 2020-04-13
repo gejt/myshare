@@ -6,6 +6,7 @@ body {
   padding-top: 50px;
   margin-bottom: 30px;
   color: #555;
+  font-family: -apple-system-font,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
 }
 
 body > nav > div > div.navbar-header > a{
