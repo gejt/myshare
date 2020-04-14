@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  我为什么选择做淘小铺
+title:  年入百万，我为什么选择做淘小铺?
 author: GEJT
 image: assets/images/avatar.jpg
 category: 淘小铺专辑
