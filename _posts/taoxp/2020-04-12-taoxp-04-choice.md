@@ -63,7 +63,7 @@ permalink: /taoxp/04
 这里推荐两本我正在看的书，大家可以点开看看
 <div class="row">
 	<div class="col-xs-6">
-	<a href="https://union-click.jd.com/jdc?e=&p=AyIGZRprFQIRBFQTWhcyVlgNRQQlW1dCFFlQCxxKQgFHREkdSVJKSQVJHFRXFk9FUlpGQUpLCVBaTFhbXQtWVmpSWRtbFgETD1QZa2h5d2MwfEVDYXRXV1ofF0loVSNrGkMOHjdUK1sUAxMEVR5ZHQYiN1Uca0NsEgZUGloUBxICVitaJQIWDlIdUxcHGgBRE14lBRIOZU0PTlpXVwsrayUBIjdlG2sWMlBpVR8JQQQUBgZPCxVVF1MBSVMTVRdVBx0MRgsQBgZOWB0yEAZUH1I%3D" target="_blank"><img src="/img/wlyxsz.jpg"/></a>
+	<a href="https://union-click.jd.com/jdc?e=&p=AyIGZRtSFAcRAVQZWBUyFQJcE14dABQFVBprUV1KWQorAlBHU0VeBUVNR0ZbSkdETlcNVQtHRVNSUVNLXANBRA1XB14DS10cQQVYD21XHgBQElMQChABVxpaJV5nDy4ZLFNJcn1SWxNLXWVzVFAeblQeC2UaaxUDEwZWG14XChY3ZRtcJUN8B1QaWRMFFQFlGmsVBhsAXBlfEgARAFIcaxICGzcDTwBNR0JZZStrFjIiN1UrWCVAfFQFHAscVUYEXB4LEgdBUFFLUkADQA5WGVwVVxUAUBtYJQATBlES" target="_blank"><img src="/img/wlyxsz.jpg"/></a>
 	</div>
 	<div class="col-xs-6">
 	<a href="https://union-click.jd.com/jdc?e=&p=AyIGZRprFQIUBVAeWBEyVlgNRQQlW1dCFFlQCxxKQgFHREkdSVJKSQVJHFRXFk9FUlpGQUpLCVBaTFhbXQtWVmpSWRtbEwAXAlYfa0xBaFs3YSBQZ3V1EkZeYAdacSZbBWUOHjdUK1sUAxMEVR5ZHQYiN1Uca0NsEgZUGloUBxICVitaJQIWDlIdUxcEGw5UGlIlBRIOZU0PTlpXVwsrayUBIjdlG2sWMlBpBU9dQlZFVABMXxQDFwBcHQhFAxBTBkgLRVVFBVJJWxUyEAZUH1I%3D" target="_blank"><img src="/img/seosz.jpg"/></a>
