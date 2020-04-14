@@ -33,7 +33,11 @@ permalink: /taoxp/04
 
 `6、淘小铺可以通过打造自己的团队，建立上下级关系，创造持续的管道收益（这个是被动收入的重点）`
 
-`7、淘小铺背靠阿里巴巴，有完整的供货、客服、售后服务体系，值得信赖有保障`
+`7、淘小铺团队模式，管道收益给了我月入百万的机会`
+
+`8、淘小铺背靠阿里巴巴，有完整的供货、客服、售后服务体系，值得信赖有保障`
+
+![](/img/taoxp-fl.jpg)
 
 当然，做淘小铺创业，并不是说你加入了这么简单，真的想做好就要付出努力。在这个体系中没有人会管教你，有人分享授课那是你的幸运。一切都要你自己努力，制定自己的目标、规划，一步一个脚印，踏踏实实，稳扎稳打，才能离成功更进一步。
 
@@ -58,10 +62,10 @@ permalink: /taoxp/04
 
 这里推荐两本我正在看的书，大家可以点开看看
 <div class="row">
-	<div class="col-sm-6">
+	<div class="col-xs-6">
 	<a href="https://union-click.jd.com/jdc?e=&p=AyIGZRprFQIRBFQTWhcyVlgNRQQlW1dCFFlQCxxKQgFHREkdSVJKSQVJHFRXFk9FUlpGQUpLCVBaTFhbXQtWVmpSWRtbFgETD1QZa2h5d2MwfEVDYXRXV1ofF0loVSNrGkMOHjdUK1sUAxMEVR5ZHQYiN1Uca0NsEgZUGloUBxICVitaJQIWDlIdUxcHGgBRE14lBRIOZU0PTlpXVwsrayUBIjdlG2sWMlBpVR8JQQQUBgZPCxVVF1MBSVMTVRdVBx0MRgsQBgZOWB0yEAZUH1I%3D" target="_blank"><img src="/img/wlyxsz.jpg"/></a>
 	</div>
-	<div class="col-sm-6">
+	<div class="col-xs-6">
 	<a href="https://union-click.jd.com/jdc?e=&p=AyIGZRprFQIUBVAeWBEyVlgNRQQlW1dCFFlQCxxKQgFHREkdSVJKSQVJHFRXFk9FUlpGQUpLCVBaTFhbXQtWVmpSWRtbEwAXAlYfa0xBaFs3YSBQZ3V1EkZeYAdacSZbBWUOHjdUK1sUAxMEVR5ZHQYiN1Uca0NsEgZUGloUBxICVitaJQIWDlIdUxcEGw5UGlIlBRIOZU0PTlpXVwsrayUBIjdlG2sWMlBpBU9dQlZFVABMXxQDFwBcHQhFAxBTBkgLRVVFBVJJWxUyEAZUH1I%3D" target="_blank"><img src="/img/seosz.jpg"/></a>
 	</div>
 </div>
