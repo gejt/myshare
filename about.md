@@ -21,6 +21,32 @@ excerpt: 这个网站都做了什么……
 
 本网站使用的建站技术会以专题的形式写下来并发表，有兴趣的同学可以关注网站更新。
 
+本网站使用的付费资源
+
+付费资源|原价|优惠价|到期时间
+---|:--:|:--:|---:
+[`阿里云OSS`](https://www.aliyun.com/minisite/goods?userCode=bpm0axn7)|60|45|2019-12-20 至 2024-12-21
+腾讯云服务器CVM(学生版)|60+120+120|第一次购买60续费两次120|2018-08-15 至 2021-03-04
+腾讯云域名注册|1+49|1元注册续费49|2018-09-11 至 2021-02-11
+
+### 推荐使用
+<div class="row">
+	
+	<div class="col-xs-4">
+	<a href="https://url.cn/5jHXAGb" target="_blank"><img src="/img/tx-sn.jpg"/></a>
+	</div>
+	<div class="col-xs-4">
+	<a href="https://url.cn/5iASI8k" target="_blank"><img src="/img/tx-xr.jpg"/></a>
+	</div>
+	<div class="col-xs-4">
+	<a href="https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=bpm0axn7" target="_blank"><img src="/img/aliyun-1z.jpg"/></a>
+	</div>
+</div>
+
+
+
+
+
 
 
 
