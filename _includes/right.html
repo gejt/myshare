@@ -2,23 +2,10 @@
                   <div class="panel-heading">专题推荐</div>
                   <div id="category" class="panel-body">
                     <ul>
-                      {% for category in site.categories %}
-                      <li><a class="category" href="/index.html?cat={{category | first}}">{{category | first}}</a><span class="badge pull-right">{{category | last | size}}</span></li>
+                      {% for category in site.data.category %}
+                      <li><a class="category" href="{{category.url}}">{{category.title}}</a>
+                      <span class="badge pull-right">{{category.count}}</span></li>
                       {% endfor %}
                     </ul>
                   </div>
                 </div>
-<!--
-                <div class="panel panel-default">
-                  <div class="panel-body">
-
-                      <a href="#">
-                        <img src="{{site.url}}/assets/img/profile.png" class="img-responsive" alt="我的头像">
-                      </a>
-
-                      <h4>{{site.author}}</h4>
-                      <p>{{site.authorDescp}}</p>
-                      <a href="mailto:{{site.email}}"><span class="glyphicon glyphicon-envelope">&nbsp</span>852442493</a>
-                  </div>
-                </div>
--->

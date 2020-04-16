@@ -37,6 +37,7 @@
     <div id="breadcrumb" class="container-fluid" id="top">
         <ol class="breadcrumb">
               <li><a href="/index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp主页</a></li>
+              <li class="active category"><a href="#">{{page.category}}</a></li>
         </ol>
     </div>
     <div class="container-fluid">
@@ -64,6 +65,18 @@
             <div id="SOHUCS" ></div> 
             </div>
             <div class="col-md-3  col-sm-4 col-sm-xs-12" id="right-side">
+                <div class='panel panel-default' id="relatePannel">
+                  <div class='panel-heading'>相关文章</div>
+                  <div id='category' class='panel-body'>
+                      <ul>
+                      {% for post in site.posts reversed %}
+                        {%if page.category==post.category %}
+                          <li><a class='category' href='{{post.url}}.html'>{{post.title}}</a></li>
+                        {% endif %}
+                      {% endfor %}
+                      </ul>
+                    </div>
+                </div>
                 {% include right.html %}
             </div>
         </div>
@@ -73,52 +86,24 @@
     {% include baidu-js.html %}
     {% include lib-js.html %}
    	{% include js.html %}
-    <script type="text/javascript">
-            var cat = '{{page.category}}';
-            if(cat!=''){
-                var breadcrumb = '<li class="active category"><a href="/index.html?cat='+cat+'">'+cat+'</a></li>';
-                $("#breadcrumb ol").append(breadcrumb);
-            }
-            var catlist = [];
- 
-            {% for post in site.posts %}
-              {%if page.category==post.category %}
-              catlist.push({
-                    "title":"{{post.title}}"
-                    ,"dateTime":"{{post.dateTime}}"
-                    ,"author":"{{post.author}}"
-                    ,"category":"{{post.category}}"
-                    ,"excerpt":'{{post.excerpt}}'
-                    ,"url":'{{post.url}}'
-              });
-              {% endif %}
-            {% endfor %}
-            if(catlist.length>0){
-              catlist = catlist.sort(function(item1,item2){
-                return item1.url.substring(item1.url.lastIndexOf("/")+1,item1.url.length)-item2.url.substring(item2.url.lastIndexOf("/")+1,item2.url.length);
-              });
-              var relateHtml = "<div class='panel panel-default'>"
-                      +"<div class='panel-heading'>相关文章</div>"
-                      +"<div id='category' class='panel-body'>"
-                      +"<ul>";
 
-              for(i in catlist){
-                  relateHtml+="<li><a class='category' href='"+catlist[i].url+".html'>"+catlist[i].title+"</a></li>";
-              }
-
-              relateHtml=relateHtml+"</ul></div></div>";
-              $("#right-side").prepend(relateHtml);
-            }
-           
-    </script>
     <!--PC和WAP自适应版-->
 
 <script type="text/javascript"> 
+
+$(function(){
+  if($("#relatePannel a").length==0){
+    $("#relatePannel").hide();
+  }
+});
+
+
 (function(){ 
 var appid = 'cyuMxf7e0'; 
 var conf = 'prod_7393b4533fccff254d715ba56238451c'; 
 var width = window.innerWidth || document.documentElement.clientWidth; 
 if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); 
+</script>
   </body>
 </html>
