@@ -131,12 +131,18 @@ hr{
 	body > nav > div > div.navbar-header > a > p{
 		padding-top: -50px;
 	}
+	
 	.breadcrumb{
 		padding-left: 200px;
 		padding-right: 200px;
 	}
 	#navbar > form{
 		padding-top:15px;
+	}
+}
+@media (max-width: 768px){
+	.navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+	    color: #fff;
 	}
 }
 

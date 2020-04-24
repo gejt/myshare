@@ -22,7 +22,23 @@
                       <li><a href="{{category.url}}">{{category.title}}</a></li>
                 {% endfor %}
                 </ul>
-              </li>
+                
+            </li>
+            {% for category in site.data.category %}
+                    {% if page.category == category.title %}
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="{{category.icon}}">&nbsp</span>{{category.title}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      {% for post in site.posts reversed %}
+                        {%if page.category==post.category %}
+                          <li><a  href='{{post.url}}.html'>{{post.title}}</a></li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                     </li>
+                    {% endif %}
+                {% endfor %}
+
             <li><a href="/contact.html"><span class="glyphicon glyphicon-send">&nbsp</span>联系作者</a></li>
           </ul>
           <form class="navbar-form navbar-right" role="search">
