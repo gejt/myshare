@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 关于网站
+title: 我的网站首页，我说了算！！！
 category: 关于网站
 author: GEJT
 dateTime: "2020年4月10日"

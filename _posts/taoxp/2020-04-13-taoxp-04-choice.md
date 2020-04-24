@@ -3,7 +3,7 @@ layout: post
 title:  年入百万，我为什么选择做淘小铺?
 author: GEJT
 image: assets/images/avatar.jpg
-category: 淘小铺专辑
+category: 互联网创业分享
 tags: [淘小铺]
 keywords: 淘小铺,如何做淘小铺
 dateTime: 2020年4月13日

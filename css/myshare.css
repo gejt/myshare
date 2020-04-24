@@ -51,6 +51,11 @@ body > nav > div > div.navbar-header > a > span{
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
     border-color: #0AA770;
 }
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    color: #fff;
+    background-color: #0AA770;
+}
+.dropdown-menu{}
 .btn-success {
     color: #fff;
     background-color: #118860;
