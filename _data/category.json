@@ -12,6 +12,12 @@
 	,"count":9
 	,"icon":"glyphicon glyphicon-fire"
 }
+,{
+	"title":"Java基础"
+	,"url":"/javaIndex.html"
+	,"count":2
+	,"icon":"glyphicon glyphicon-star-empty"
+}
 
 ,{
 	"title":"Markdown"
