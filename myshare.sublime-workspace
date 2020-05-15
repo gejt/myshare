@@ -48,10 +48,19 @@
 	},
 	"expanded_folders":
 	[
-		"/D/my/workspace/myshare"
+		"/D/my/workspace/myshare",
+		"/D/my/workspace/myshare/_data",
+		"/D/my/workspace/myshare/_posts",
+		"/D/my/workspace/myshare/_posts/java",
+		"/D/my/workspace/myshare/img",
+		"/D/my/workspace/myshare/img/java"
 	],
 	"file_history":
 	[
+		"/D/my/workspace/myshare/_data/category.json",
+		"/D/my/workspace/myshare/javaIndex.html",
+		"/D/my/workspace/myshare/_posts/java/2020-01-21-java-01-jdk.md",
+		"/D/my/workspace/myshare/_posts/java/2020-01-21-java-02-idea.md",
 		"/D/my/workspace/myshare/index.html",
 		"/D/my/workspace/myshare/about.md",
 		"/D/my/workspace/myshare/assets/css/myshare.css",
@@ -61,13 +70,14 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 30.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 120.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -75,6 +85,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"/assets"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -82,6 +93,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -105,7 +117,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 30.0
 	},
 	"input":
 	{
@@ -142,7 +154,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 0.0
+		"height": 56.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -180,7 +192,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 319.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

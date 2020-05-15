@@ -15,31 +15,24 @@
         <div id="navbar" class="collapse navbar-collapse ">
           <ul class="nav navbar-nav navbar-left" >
             <li><a href="/index.html"><span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp</span>主页</a></li>
+            <li><a href="/wIndex.html"><span class="glyphicon glyphicon-time" aria-hidden="true">&nbsp</span>效率办公</a></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tags">&nbsp</span>站内导航 <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tags">&nbsp</span>IT跟我学 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                {% for category in site.data.category %}
-                      <li><a href="{{category.url}}">{{category.title}}</a></li>
-                {% endfor %}
+                      <li><a href="/javaIndex.html">Java快速入门</a></li>
+                      <li><a href="/jIndex.html">Jdk1.8新特性</a></li>
                 </ul>
                 
             </li>
-            {% for category in site.data.category %}
-                    {% if page.category == category.title %}
+            <li><a href="/wIndex.html"><span class="glyphicon glyphicon-globe" aria-hidden="true">&nbsp</span>互联网创业</a></li>
                     <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="{{category.icon}}">&nbsp</span>{{category.title}}<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-fire">&nbsp</span>更多专辑<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      {% for post in site.posts reversed %}
-                        {%if page.category==post.category %}
-                          <li><a  href='{{post.url}}.html'>{{post.title}}</a></li>
-                        {% endif %}
-                      {% endfor %}
+                          <li><a  href='mIndex.html'>Markdown基础知识</a></li>
                     </ul>
                      </li>
-                    {% endif %}
-                {% endfor %}
-
-            <li><a href="/contact.html"><span class="glyphicon glyphicon-send">&nbsp</span>联系作者</a></li>
+            <li>
+            <a href="/contact.html"><span class="glyphicon glyphicon-send">&nbsp</span>联系作者</a></li>
           </ul>
           <form class="navbar-form navbar-right" role="search">
             <div class="input-group">
