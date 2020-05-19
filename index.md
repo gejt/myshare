@@ -1,30 +1,154 @@
 ---
-layout: post
-title: 工作，分享，快乐，生活！！！
-category: 关于网站
-author: GEJT
-dateTime: "2020年4月10日"
-excerpt: 大家好，我是滔滔，一个85后JAVA程序员！这是我的第一个博文系统【AAA时间】。
+layout: default
 ---
+<script type="text/javascript">
+  var showList = [];
+  function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+        var r = decodeURI(window.location.search).substr(1).match(reg); 
+        if (r != null) return unescape(r[2]); return null; 
+  }
+  function filterList(list,cat){
+    var showList = [];
+    for(i in list){
+        if(list[i].category==cat){
+          showList.push(list[i]);
+        }
+    }
+    return showList;
+  }
+  function searchList(list,search){
+      var resultList = [];
+      var pattern = new RegExp(search, 'i');
+      for(i in list){
+        // if(list[i].title.search(pattern)!=-1
+        //   ||list[i].excerpt.search(pattern)!=-1){
+        //   list[i].title = list[i].title.replace(pattern,'<span class="text-danger">'+search+'</span>',"i");
+        //   list[i].excerpt = list[i].excerpt.replace(pattern,'<span class="text-danger">'+search+'</span>',"i");
+        //   resultList.push(list[i]);
+        // 
+        //
+        var match=[];
+        var titMatch = list[i].title.match(pattern);
+        var exMatch = list[i].excerpt.match(pattern);
+        if(titMatch!=null){
+          match.push(titMatch);
+        }
+        if(exMatch!=null){
+          match.push(exMatch);
+        }
+        if(search==list[i].category){
+          match.push(search);
+        }
+        if(match!=null&&match.length>0){
+            for(j in match){
+              list[i].title = list[i].title.replace(match[j],'<span class="text-danger">'+match[j]+'</span>',"i");
+              list[i].excerpt = list[i].excerpt.replace(match[j],'<span class="text-danger">'+match[j]+'</span>',"i");
+            }
+            resultList.push(list[i]);
+        }
+      }
+      return resultList;
+  }
 
-【AAA时间】旨在帮助大家充分认识自己的时间效益，不要被无用的事件收割自己的注意力！！！好钢用在刀刃上，当然你最好的青春也应该用在学习这件事上。
+  function buildHtml(record) {
+    var html = "";
+    if(record){
+      for(i in record){
+        var post = record[i];
+        html += '<div class="blog-post">'
+         + '<h2 class="blog-post-title"><a href="'+post.url+'.html">'+post.title+'</a></h2>'
+          +'<p class="blog-post-meta">'+post.dateTime+' by <a href="/contact.html">'+post.author+'</a>&nbsp&nbsp'
+            +'<a class="label label-danger pull-right category" href="/index.html?s='+post.category+'">'+post.category+'</a>'
+          +'</p>'
+          +'<p>'+post.excerpt+'</p>'
+          +'<hr>'
+        +'</div>';
+      }
+    }
+    if(html==""){
+      html = '<div class="alert alert-dange text-center" role="alert">暂无内容</div>';
+    }
+    return html;
+  }
+  
+  function showPage(pageNo){
+      var pageSize = 5;
+      var total = showList.length;
+      var pages = Math.floor(total%pageSize==0?(total/pageSize):(total/pageSize+1));
+      pageNo = pageNo<0?0:pageNo;
+      pageNo = pageNo>pages?pages:pageNo;
+      var start = (pageNo-1)*pageSize;
+      start = start<0?0:start;
+      var end = pageNo*pageSize;
+      end = end>(total)?(total):end;
+      var record = showList.slice(start,end);
+      var html = buildHtml(record);
+      if(showList.length!=0){
+        html += '<nav><ul class="pager">';
+          if(pageNo==1){
+            html += '<li class="previous disabled"><a href="#">上一页</a></li>';
+          }else{
+            html += '<li class="previous"><a href="javascript:goPage('+(new Number(pageNo)-1)+')">上一页</a></li>';
+          }
 
-【AAA时间】记录了我在互联网上都做了哪些努力，我是如何提高自己的工作效率，我之于互联网又做了哪些改变，希望对读者能有所帮助和启迪。
+          if(pageNo==pages){
+            html += '<li class="next disabled"><a href="#">下一页</a></li>';
+          }else{
+            html += '<li class="next"><a href="javascript:goPage('+(new Number(pageNo)+1)+')">下一页</a></li>';
+          }
 
-【AAA时间】当前规划了“效率办公”，“IT跟我学”，“互联网创业”三个专辑模块。千里之行，始于足下，滔滔会不断整理和发表相关的内容，持续的输出希望读者多提出宝贵的意见，滔滔也能够不断的改进和提升自己。
+       html += '</ul> </nav>';
+      }
+      
+      $("#list").html(html);
+  }
 
-一个人的能力是有限的，滔滔需要您的加入，您的一次评价，一次投稿，一颦一笑，都是对滔滔最大的帮助、支持和鼓励。如果有您的加入，我们一定能够在【AAA时间】这个平台上帮助更多的人，滔滔期你的加入！！！
+function goPage(page){
+  var href = "/index.html?p="+page;
+  var search = getQueryString("s");
+  if(search){
+      href = href + "&s="+search;
+  }
+  var cat = getQueryString("cat");
+  if(cat){
+    href = href + "&cat="+cat;
+  }
+  window.location.href = encodeURI(href);
+}
 
-![weixin-aaa.png](/img/weixin-aaa.png)
+  
+  var list = [];
+ 
+  {% for post in site.posts %}
+  list.push({
+        "title":"{{post.title}}"
+        ,"dateTime":"{{post.dateTime}}"
+        ,"author":"{{post.author}}"
+        ,"category":"{{post.category}}"
+        ,"excerpt":'{{post.excerpt}}'
+        ,"url":'{{post.url}}'
+  });
+  {% endfor %}
+  var cat = getQueryString("cat");
+  if(null!=cat){
+    showList = filterList(list,cat);
+  }else{
+    showList = list;
+  }
+  var search = getQueryString("s");
+  if(search!=null&&search!=""){
+      showList = searchList(showList,search);
+      $("#iptSearch").val(search);
+  }
+  var page = getQueryString("p");
+  if(!page){
+    page = 1;
+  }
+  showPage(page);
+</script>
 
 
 
 
-
-
-
-
-
-
-
-
+            

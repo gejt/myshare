@@ -112,7 +112,8 @@ hr{
 		min-height: 80px;
 	}
 	.container-fluid{
-		padding: 0px 200px;
+		padding: 0px 0px;
+		width:1190px;
 	}
 	#navbar > ul > li > a{
 		padding-top: 30px;
@@ -133,8 +134,8 @@ hr{
 	}
 	
 	.breadcrumb{
-		padding-left: 200px;
-		padding-right: 200px;
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 	#navbar > form{
 		padding-top:15px;
