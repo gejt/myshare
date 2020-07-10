@@ -1,14 +1,14 @@
 [
 {
-	"title":"效率办公"
-	,"url":"/wIndex.html"
-	,"count":0
-	,"icon":"glyphicon glyphicon-fire"
-}
-,{
-	"title":"Java快速入门"
+	"title":"Java开发环境"
 	,"url":"/javaIndex.html"
 	,"count":2
+	,"icon":"glyphicon glyphicon-star-empty"
+}
+,{
+	"title":"Java基础语法"
+	,"url":"/javaBaseIndex.html"
+	,"count":1
 	,"icon":"glyphicon glyphicon-star-empty"
 }
 ,{
@@ -17,13 +17,6 @@
 	,"count":9
 	,"icon":"glyphicon glyphicon-fire"
 }
-,{
-	"title":"互联网创业"
-	,"url":"/netIndex.html"
-	,"count":0
-	,"icon":"glyphicon glyphicon-eye-open"
-}
-
 ,{
 	"title":"Markdown"
 	,"url":"/mIndex.html"

@@ -45,11 +45,11 @@
     <div class="container-fluid">
         <div class="row">
             <div id="list" class="col-md-9 col-sm-8 col-sm-xs-12">
-              {% for post in site.posts %}
+              {% for post in site.posts reversed %}
               {% if page.category == post.category %}
               <div class="blog-post">
                <h2 class="blog-post-title"><a href="{{post.url}}.html">{{post.title}}</a></h2>
-                <p class="blog-post-meta"> <a href="/contact.html">{{post.author}}</a> 发表于 {{post.dateTime}}nbsp&nbsp
+                <p class="blog-post-meta"> <a href="/contact.html">{{post.author}}</a> 发表于 {{post.dateTime}}&nbsp&nbsp
                   <a class="label label-danger pull-right category" href="#">{{post.category}}</a>
                 </p>
                 <p>{{post.excerpt}}</p>

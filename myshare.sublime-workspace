@@ -3,10 +3,211 @@
 	{
 		"selected_items":
 		[
+			[
+				"max",
+				"max-width"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "_includes/header.html",
+			"settings":
+			{
+				"buffer_size": 2847,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "---\nlayout: post\ntitle:  \"Java命名规则\"\nauthor: GEJT\nimage: assets/images/avatar.jpg\ncategory: Java基础语法\ntags: [Java,Java基础语法]\ndateTime: \"2020年7月11日\"\nexcerpt: Java命名规则。\npermalink: /java/03\n---\n\n\n * 大小写敏感：Java 是大小写敏感的，这就意味着标识符 Hello 与 hello 是不同的。\n * 类名：对于所有的类来说，类名的首字母应该大写。如果类名由若干单词组成，那么每个单词的首字母应该大写，例如 HelloWorld。\n * 方法名：所有的方法名都应该以小写字母开头。如果方法名含有若干单词，则后面的每个单词首字母大写。\n * 源文件名：源文件名必须和类名相同。当保存文件的时候，你应该使用类名作为文件名保存（切记 Java 是大小写敏感的），文件名的后缀为 .java。（如果文件名和类名不相同则会导致编译错误）。\n * 主方法入口：所有的 Java 程序由 public static void main(String []args) 方法开始执行。\n\n---\n\n## `HelloWorld001.java`\n```\npackage xyz.zao123.java;\n/**\n * Java基础语法-命名规则\n * @author gejt\n * @date 20200710\n */\npublic class HelloWorld001 {\n\n    public static void main(String[] args) {\n\n        String hello = \"hello world!\";\n        String Hello = \"hello world 2!\";\n\n        System.out.println(hello);\n        System.out.println(Hello);\n\n    }\n}\n```\n\n\n\n\n\n",
+			"file": "_posts/java/2020-01-21-java-03-base01 .md",
+			"file_size": 1451,
+			"file_write_time": 132388744528838191,
+			"settings":
+			{
+				"buffer_size": 890,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "---\nlayout: post\ntitle:  \"Java标识符\"\nauthor: GEJT\nimage: assets/images/avatar.jpg\ncategory: Java基础语法\ntags: [Java,Java标识符]\ndateTime: \"2020年7月11日\"\nexcerpt: Java所有的组成部分都需要名字。类名、变量名以及方法名都被称为标识符。\npermalink: /java/04\n---\n\n\n * 所有的标识符都应该以字母（A-Z 或者 a-z）,美元符（$）、或者下划线（_）开始\n * 首字符之后可以是字母（A-Z 或者 a-z）,美元符（$）、下划线（_）或数字的任何字符组合\n * 关键字不能用作标识符\n * 标识符是大小写敏感的\n\n---\n\n## `HelloWorld002.java`\n```\npackage xyz.zao123.java;\n/**\n * Java基础语法-Java标识符\n * @author gejt\n * @date 20200711\n */\npublic class HelloWorld002 {\n\n    public static void main(String[] args) {\n\n        //合法的标识符\n        int age = 1;\n        int $salary = 100;\n        String value = \"hello world\";\n        String __1_str_value = \"hello world 2!\";\n\n        //非法的标识符\n        //int 123age = 1;\n        //int -salary = 100;\n\n    }\n}\n```\n\n\n\n\n\n",
+			"file": "_posts/java/2020-01-21-java-04-base02.md",
+			"file_size": 1129,
+			"file_write_time": 132388744611034277,
+			"settings":
+			{
+				"buffer_size": 779,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "jIndex.html",
+			"settings":
+			{
+				"buffer_size": 43,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_data/category.json",
+			"settings":
+			{
+				"buffer_size": 410,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_posts/java/2020-01-21-java-01-jdk.md",
+			"settings":
+			{
+				"buffer_size": 749,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_posts/java/2020-01-21-java-02-idea.md",
+			"settings":
+			{
+				"buffer_size": 1117,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "javaIndex.html",
+			"settings":
+			{
+				"buffer_size": 42,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "javaBaseIndex.html",
+			"settings":
+			{
+				"buffer_size": 42,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_includes/js.html",
+			"settings":
+			{
+				"buffer_size": 1571,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "contact.md",
+			"settings":
+			{
+				"buffer_size": 483,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_includes/right.html",
+			"settings":
+			{
+				"buffer_size": 570,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_includes/lib-js.html",
+			"settings":
+			{
+				"buffer_size": 437,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_layouts/post.html",
+			"settings":
+			{
+				"buffer_size": 5360,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "---\nlayout: post\ntitle:  \"Java变量\"\nauthor: GEJT\nimage: assets/images/avatar.jpg\ncategory: Java基础语法\ntags: [Java,Java变量]\ndateTime: \"2020年7月11日\"\nexcerpt: Java中主要有如下3种类型的变量\npermalink: /java/06\n---\n\n * 局部变量\n * 类变量（静态变量）\n * 成员变量（非静态变量）\n\n---\n\n/**\n * Java基础语法-Java变量\n * @author gejt\n * @date 20200711\n */\n\npublic class HelloWorld004 {\n\n    private int age = 1;//成员变量（非静态变量）\n\n    private static String name = \"gejt\";//类变量（静态变量）\n\n    public void  sayHello(){\n        String message = \"hello world\";//局部变量\n    }\n\n}\n\n```\n\n\n\n",
+			"file": "_posts/java/2020-01-21-java-06-base04.md",
+			"file_size": 705,
+			"file_write_time": 132388747489237944,
+			"settings":
+			{
+				"buffer_size": 511,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_posts/java/2020-07-11-java-05-base03.md",
+			"settings":
+			{
+				"buffer_size": 888,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_posts/java/2020-07-11-java-06-base04.md",
+			"settings":
+			{
+				"buffer_size": 563,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_layouts/default.html",
+			"settings":
+			{
+				"buffer_size": 2485,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_layouts/cIndex.html",
+			"settings":
+			{
+				"buffer_size": 3166,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/myshare.css",
+			"settings":
+			{
+				"buffer_size": 3159,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "netIndex.html",
+			"settings":
+			{
+				"buffer_size": 39,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -50,13 +251,18 @@
 	[
 		"/D/my/workspace/myshare",
 		"/D/my/workspace/myshare/_data",
+		"/D/my/workspace/myshare/_includes",
+		"/D/my/workspace/myshare/_layouts",
 		"/D/my/workspace/myshare/_posts",
 		"/D/my/workspace/myshare/_posts/java",
-		"/D/my/workspace/myshare/img",
-		"/D/my/workspace/myshare/img/java"
+		"/D/my/workspace/myshare/css",
+		"/D/my/workspace/myshare/img"
 	],
 	"file_history":
 	[
+		"/D/my/workspace/myshare/_posts/java/2020-01-21-java-05-base03.md",
+		"/D/my/workspace/myshare/index.md",
+		"/D/my/workspace/myshare/sindex.html",
 		"/D/my/workspace/myshare/_data/category.json",
 		"/D/my/workspace/myshare/javaIndex.html",
 		"/D/my/workspace/myshare/_posts/java/2020-01-21-java-01-jdk.md",
@@ -85,6 +291,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"html",
 			"/assets"
 		],
 		"highlight": true,
@@ -110,8 +317,635 @@
 	"groups":
 	[
 		{
+			"selected": 14,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "_includes/header.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2847,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1471,
+								1471
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 136.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "_posts/java/2020-01-21-java-03-base01 .md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 890,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								671,
+								671
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "_posts/java/2020-01-21-java-04-base02.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 779,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								486,
+								486
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "jIndex.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 43,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "_data/category.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								127,
+								127
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "_posts/java/2020-01-21-java-01-jdk.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 749,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								96,
+								88
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "_posts/java/2020-01-21-java-02-idea.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								101,
+								101
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "javaIndex.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 42,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37,
+								37
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "javaBaseIndex.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 42,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42,
+								42
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "_includes/js.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1571,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1257,
+								1257
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "contact.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 483,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								482,
+								482
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "_includes/right.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 570,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								354,
+								349
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "_includes/lib-js.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 437,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "_layouts/post.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5360,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3503,
+								3503
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1276.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "_posts/java/2020-01-21-java-06-base04.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 511,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								234,
+								234
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "_posts/java/2020-07-11-java-05-base03.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 888,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								329,
+								306
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "_posts/java/2020-07-11-java-06-base04.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 563,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								287,
+								287
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "_layouts/default.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2485,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2291,
+								2291
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 611.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "_layouts/cIndex.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3166,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2356,
+								2356
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 666.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "css/myshare.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3159,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2384,
+								2384
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2461.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "netIndex.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 39,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								34,
+								34
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -192,7 +1026,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 319.0,
+	"side_bar_width": 463.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
