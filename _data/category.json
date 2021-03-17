@@ -1,14 +1,8 @@
 [
 {
-	"title":"Java开发环境"
+	"title":"Java基础"
 	,"url":"/javaIndex.html"
-	,"count":2
-	,"icon":"glyphicon glyphicon-star-empty"
-}
-,{
-	"title":"Java基础语法"
-	,"url":"/javaBaseIndex.html"
-	,"count":1
+	,"count":8
 	,"icon":"glyphicon glyphicon-star-empty"
 }
 ,{
