@@ -12,6 +12,12 @@
 	,"icon":"glyphicon glyphicon-fire"
 }
 ,{
+	"title":"RabbitMq"
+,"url":"/rIndex.html"
+,"count":1
+,"icon":"glyphicon glyphicon-fire"
+}
+,{
 	"title":"Markdown"
 	,"url":"/mIndex.html"
 	,"count":1
