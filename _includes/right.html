@@ -3,9 +3,9 @@
                   <div class="panel-heading">专辑推荐</div>
                   <div id="category" class="panel-body">
                     <ul>
-                      {% for category in site.data.category %}
-                      <li><a class="category" href="{{category.url}}">{{category.title}}</a>
-                      <span class="badge pull-right">{{category.count}}</span></li>
+                      {% for category in site.categories %}
+                      <li><a class="category" href="/index.html?cat={{category|first}}">{{category|first}}</a>
+                      <span class="badge pull-right">{{category|last|size}}</span></li>
                       {% endfor %}
                     </ul>
                   </div>

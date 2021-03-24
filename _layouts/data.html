@@ -1,0 +1,11 @@
+{	
+	"categories":[
+			 {% for category in site.categories %}
+			 {	"name":"{{category|first}}"
+				 ,"url":"/index.html?cat={{category|first}}"
+				 ,"count":"{{category|last|size}}"
+                      },
+                     {% endfor %}
+                     {}
+                     ]
+}

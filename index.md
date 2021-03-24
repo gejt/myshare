@@ -59,7 +59,7 @@ layout: default
         html += '<div class="blog-post">'
          + '<h2 class="blog-post-title"><a href="'+post.url+'.html">'+post.title+'</a></h2>'
           +'<p class="blog-post-meta">'+post.dateTime+' by <a href="/contact.html">'+post.author+'</a>&nbsp&nbsp'
-            +'<a class="label label-danger pull-right category" href="/index.html?s='+post.category+'">'+post.category+'</a>'
+            +'<a class="label label-danger pull-right category" href="/index.html?cat='+post.category+'">'+post.category+'</a>'
           +'</p>'
           +'<p>'+post.excerpt+'</p>'
           +'<hr>'
@@ -140,12 +140,19 @@ function goPage(page){
   if(search!=null&&search!=""){
       showList = searchList(showList,search);
       $("#iptSearch").val(search);
+  }else if(null!=cat){
+      showList.sort(function(a,b){
+       			return a.url - b.url;
+       	}).reverse();
   }
   var page = getQueryString("p");
   if(!page){
     page = 1;
   }
   showPage(page);
+  $.get("/data.html",function(data){
+        var json = $.parseJSON( data );
+  })
 </script>
 
 
