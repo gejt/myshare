@@ -120,7 +120,7 @@ $(function(){
         var posts = json.posts.reverse();
         for(index in posts){
             if("{{page.category}}"==posts[index].category){
-                catPosts +="<li><a class='category' href="+posts[index].url+">"+posts[index].title+"</a></li>";
+                catPosts +="<li><a class='category' href="+posts[index].url+".html>"+posts[index].title+"</a></li>";
             }
         }
         catPosts +="</ul>";
