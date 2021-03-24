@@ -75,7 +75,7 @@
                 </div>-->
                 <div class='panel panel-default' id="relatePannel">
                   <div class='panel-heading'>{{page.category}}</div>
-                  <div id='category' class='panel-body'>
+                  <div id='category' class='panel-body catPosts'>
                       <ul>
                       {% for post in site.posts reversed %}
                         {%if page.category==post.category %}
@@ -103,6 +103,29 @@ $(function(){
   if($("#relatePannel a").length==0){
     $("#relatePannel").hide();
   }
+
+    $.get("/data.html",function(data) {
+        var json = $.parseJSON(data);
+        var categories = json.categories;
+        var cat = "<ul>";
+        for(index in categories){
+            if(categories[index].name==null){continue;}
+            cat += "<li><a class='category' href="+categories[index].url+">"+categories[index].name+"</a>"
+                +"<span class='badge pull-right'>"+categories[index].count+"</span></li>";
+        }
+        cat +="</ul>";
+        $(".cat").html(cat);
+
+        var catPosts = "<ul>";
+        var posts = json.posts.reverse();
+        for(index in posts){
+            if("{{page.category}}"==posts[index].category){
+                catPosts +="<li><a class='category' href="+posts[index].url+">"+posts[index].title+"</a></li>";
+            }
+        }
+        catPosts +="</ul>";
+        $(".catPosts").html(catPosts);
+    })
 });
 
 

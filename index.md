@@ -21,13 +21,7 @@ layout: default
       var resultList = [];
       var pattern = new RegExp(search, 'i');
       for(i in list){
-        // if(list[i].title.search(pattern)!=-1
-        //   ||list[i].excerpt.search(pattern)!=-1){
-        //   list[i].title = list[i].title.replace(pattern,'<span class="text-danger">'+search+'</span>',"i");
-        //   list[i].excerpt = list[i].excerpt.replace(pattern,'<span class="text-danger">'+search+'</span>',"i");
-        //   resultList.push(list[i]);
-        // 
-        //
+        if(list[i].title==null){continue;}
         var match=[];
         var titMatch = list[i].title.match(pattern);
         var exMatch = list[i].excerpt.match(pattern);
@@ -117,41 +111,39 @@ function goPage(page){
   window.location.href = encodeURI(href);
 }
 
-  
-  var list = [];
- 
-  {% for post in site.posts %}
-  list.push({
-        "title":"{{post.title}}"
-        ,"dateTime":"{{post.dateTime}}"
-        ,"author":"{{post.author}}"
-        ,"category":"{{post.category}}"
-        ,"excerpt":'{{post.excerpt}}'
-        ,"url":'{{post.url}}'
-  });
-  {% endfor %}
-  var cat = getQueryString("cat");
-  if(null!=cat){
-    showList = filterList(list,cat);
-  }else{
-    showList = list;
-  }
-  var search = getQueryString("s");
-  if(search!=null&&search!=""){
-      showList = searchList(showList,search);
-      $("#iptSearch").val(search);
-  }else if(null!=cat){
-      showList.sort(function(a,b){
-       			return a.url - b.url;
-       	}).reverse();
-  }
-  var page = getQueryString("p");
-  if(!page){
-    page = 1;
-  }
-  showPage(page);
   $.get("/data.html",function(data){
         var json = $.parseJSON( data );
+        var list = json.posts;
+        var cat = getQueryString("cat");
+          if(null!=cat){
+            showList = filterList(list,cat);
+          }else{
+            showList = list;
+          }
+          var search = getQueryString("s");
+          if(search!=null&&search!=""){
+              showList = searchList(showList,search);
+              $("#iptSearch").val(search);
+          }else if(null!=cat){
+              showList.sort(function(a,b){
+               			return a.url - b.url;
+               	}).reverse();
+          }
+          var page = getQueryString("p");
+          if(!page){
+            page = 1;
+          }
+          showPage(page);
+          
+          var categories = json.categories;
+          var cat = "<ul>";
+          for(index in categories){
+             if(categories[index].name==null){continue;}
+                cat += "<li><a class='category' href="+categories[index].url+">"+categories[index].name+"</a>"
+                    +"<span class='badge pull-right'>"+categories[index].count+"</span></li>";
+          }
+          cat +="</ul>";
+          $(".cat").html(cat);
   })
 </script>
 

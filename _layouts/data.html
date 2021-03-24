@@ -7,5 +7,18 @@
                       },
                      {% endfor %}
                      {}
-                     ]
+                     ],
+        "posts":[
+        		{% for post in site.posts %}
+		        {
+		        "title":"{{post.title}}"
+		        ,"dateTime":"{{post.dateTime}}"
+		        ,"author":"{{post.author}}"
+		        ,"category":"{{post.category}}"
+		        ,"excerpt":"{{post.excerpt}}"
+		        ,"url":"{{post.url}}"
+		  	},
+		  	{% endfor %}
+		  	{}
+        		]
 }
