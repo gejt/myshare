@@ -5,7 +5,7 @@ author: GEJT
 image: assets/images/avatar.jpg
 category: RabbitMq
 tags: [RabbitMq,RabbitMq部署方案,高可用,高性能]
-dateTime: "2021年3月22日"
+dateTime: "2021年3月23日"
 excerpt: 主要介绍RabbitMq部署方案，如何做高可用，如何做高性能。
 permalink: /rabbit/30
 ---
