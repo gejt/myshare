@@ -10,7 +10,7 @@
     <meta name="author" content="{{page.author}}">
     <link rel="icon" href="/{{site.favicon}}">
 
-    <title>{{page.title}}-{{site.name}}</title>
+    <title>{{page.title}}|{{site.name}}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/assets/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -73,6 +73,18 @@
                     <img src="/img/me_20200519222139.jpg">
                   </div>
                 </div>-->
+                {%if page.directory!=null %}
+                <div class='panel panel-default' id="relatePannel">
+                  <div class='panel-heading'>{{page.title}}</div>
+                  <div id='category' class='panel-body postDirectory'>
+                      <ul>
+                      {% for direct in page.directory %}
+                          <li><a class='category' href='#{{direct}}'>{{direct}}</a></li>
+                      {% endfor %}
+                      </ul>
+                    </div>
+                </div>
+                {%endif %}
                 <div class='panel panel-default' id="relatePannel">
                   <div class='panel-heading'>{{page.category}}</div>
                   <div id='category' class='panel-body catPosts'>

@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  RocketMq在windows环境下安装实验
+title:  RocketMq
 author: GEJT
 image: assets/images/avatar.jpg
 category: RocketMq
-tags: [RocketMq,window安装]
-dateTime: "2021年3月21日"
+tags: [RocketMq]
+dateTime: "2021年4月26日"
 excerpt: 在windows环境下安装rocketMq,并验证发送和接收消息。
-permalink: /rocket/10
+permalink: /rocket/00
 directory: [官方网站,下载地址,解压安装,启动NameServer,启动Broker,验证发送消息,验证接收消息,关闭服务,总结]
 typora-root-url: ..\..\
 typora-copy-images-to: ..\..\img
