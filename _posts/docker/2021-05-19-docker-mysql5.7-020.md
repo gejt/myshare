@@ -1,72 +1,16 @@
 ---
-
 layout: post
-title:  "docker常用命令"
+title:  "docker安装mysql5.7"
 author: GEJT
 image: assets/images/avatar.jpg
-category: docker常用命令
-tags: [docker常用命令]
+category: docker
+tags: [docker,mysql5.7]
 dateTime: "2020年5月19日"
-excerpt: docker常用命令，centos7安装docker
-permalink: /cmd-docker/000
+excerpt: docker安装mysql5.7
+permalink: /docker/020
 typora-root-url: ..\..\
 typora-copy-images-to: ..\..\img
 ---
-
-## centos7安装docker
-
-### 安装yum-utils
-
-```
-sudo yum install -y yum-utils
-```
-### 设置docker下载respository
-```
-sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-
-```
-### 安装docker-ce,并验证安装
-
-```
-sudo yum install docker-ce docker-ce-cli containerd.io
-//启动docker
-systemctl start docker
-docker -v
-//停止docker
-systemctl stop docker
-```
-
-### 设置阿里云镜像加速
-
-```
-
-sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json <<-'EOF'
-{
-  "registry-mirrors": ["https://xxx.mirror.aliyuncs.com"]
-}
-EOF
-sudo systemctl daemon-reload
-sudo systemctl restart docker
-
-```
-
-> 注意：阿里云镜像加速可以注册阿里云自行获取
-
-### 其他命令
-
-```
-//设置开机启动
-sudo systemctl enable docker.service
-sudo systemctl enable containerd.service
-//禁用开机启动
-sudo systemctl disable docker.service
-sudo systemctl disable containerd.service
-```
-
-## docker安装mysql5.7
 ### 拉取mysql5.7镜像
 
 ```
@@ -75,7 +19,9 @@ docker pull mysql:5.7
 //查看本地镜像
 docker images
 ```
+
 ### 创建并运行容器，指定数据目录
+
 ```
 //创建运行mysql容器
 docker run --name mysql-test -p 3306:3306 -v /mysql/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
@@ -84,6 +30,7 @@ docker ps
 //查看所有容器
 docker ps -a
 ```
+
 #### 查看生成的数据库文件
 
 ```
@@ -141,4 +88,5 @@ docker run --name mysql-test1 -p 3306:3306 -v /mysql/custom:/etc/mysql/conf.d -e
 docker run --name mysql-test2 -p 3306:3306 -v /mysql/init:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
 ```
 
-> 容器启动后mysql实例会从/docker-entrypoint-initdb.d目录下查找.sh 、.sql和.sql.gz结尾的文件并执行
+> 容器启动后mysql实例会从/docker-entrypoint-initdb.d目录下查找.sh、.sql和.sql.gz结尾的文件并执行
+
