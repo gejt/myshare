@@ -676,8 +676,6 @@ MyISAM基于ISAM存储引擎，并对其进行扩展。它是在Web、数据仓�
 
 ##### MyISAM主要特性
 
-###### 支持大文件系统
-
 被大文件系统和操作系统支持。
 
 当把删除和更新及插入操作混合使用的时候，动态尺寸的行产生更少碎片。这要通过合并相邻被删除的块，若下一个块被删除，就扩展到下一块自动完成。
@@ -685,8 +683,6 @@ MyISAM基于ISAM存储引擎，并对其进行扩展。它是在Web、数据仓�
 每个MyISAM表最大索引数是64，这可以通过重新编译来改变。每个索引最大的列数是16。
 
 最大的键长度是1000字节，这也可以通过编译来改变，对于键长度超过250字节的情况，一个超过1024字节的键将被用上。
-
-###### 支持全文索引
 
 BLOB和TEXT列可以被索引。
 
@@ -784,3 +780,540 @@ MEMORY： 所有的数据都在内存中，数据的处理速度快，但是安�
 参考资料
 
 https://blog.csdn.net/qq_29168493/article/details/79066399
+
+## 创建数据库
+
+在 [MySQL](http://c.biancheng.net/mysql/) 中，可以使用 **CREATE DATABASE** 语句创建数据库，语法格式如下：
+
+```
+CREATE DATABASE [IF NOT EXISTS] <数据库名>
+[[DEFAULT] CHARACTER SET <字符集名>] 
+[[DEFAULT] COLLATE <校对规则名>];
+```
+
+`[ ]`中的内容是可选的。语法说明如下：
+
+- <数据库名>：创建数据库的名称。MySQL 的数据存储区将以目录方式表示 MySQL 数据库，因此数据库名称必须符合操作系统的文件夹命名规则，不能以数字开头，尽量要有实际意义。注意在 MySQL 中不区分大小写。
+- IF NOT EXISTS：在创建数据库之前进行判断，只有该数据库目前尚不存在时才能执行操作。此选项可以用来避免数据库已经存在而重复创建的错误。
+- [DEFAULT] CHARACTER SET：指定数据库的字符集。指定字符集的目的是为了避免在数据库中存储的数据出现乱码的情况。如果在创建数据库时不指定字符集，那么就使用系统的默认字符集。
+- [DEFAULT] COLLATE：指定字符集的默认校对规则。
+
+> MySQL 的字符集（CHARACTER）和校对规则（COLLATION）是两个不同的概念。字符集是用来定义 MySQL 存储字符串的方式，校对规则定义了比较字符串的方式。后面我们会单独讲解 MySQL 的字符集和校对规则。
+
+### 最简单的创建 MySQL 数据库的语句
+
+在 MySQL 中创建一个名为 test_db 的数据库。在 MySQL 命令行客户端输入 SQL 语句`CREATE DATABASE test_db;`即可创建一个数据库，输入的 SQL 语句与执行结果如下。
+
+```
+mysql> CREATE DATABASE test_db;
+Query OK, 1 row affected (0.12 sec);
+```
+
+“Query OK, 1 row affected (0.12 sec);”提示中，“Query OK”表示上面的命令执行成功，“1 row affected”表示操作只影响了数据库中一行的记录，“0.12 sec”则记录了操作执行的时间。
+
+若再次输入`CREATE DATABASE test_db;`语句，则系统会给出错误提示信息，如下所示：
+
+```
+mysql> CREATE DATABASE test_db;
+ERROR 1007 (HY000): Can't create database 'test_db'; database exists
+```
+
+提示不能创建“test_db”数据库，数据库已存在。MySQL 不允许在同一系统下创建两个相同名称的数据库。
+
+可以加上`IF NOT EXISTS`从句，就可以避免类似错误，如下所示：
+
+```
+mysql> CREATE DATABASE IF NOT EXISTS test_db;
+Query OK, 1 row affected (0.12 sec)
+```
+
+### 创建 MySQL 数据库时指定字符集和校对规则
+
+使用 MySQL 命令行工具创建一个测试数据库，命名为 test_db_char，指定其默认字符集为 utf8，默认校对规则为 utf8_chinese_ci（简体中文，不区分大小写），输入的 SQL 语句与执行结果如下所示：
+
+```
+mysql> CREATE DATABASE IF NOT EXISTS test_db_char  DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_chinese_ci;
+Query OK, 1 row affected (0.03 sec)
+```
+
+这时，可以使用`SHOW CREATE DATABASE`查看 test_db_char 数据库的定义声明，发现该数据库的指定字符集为 utf8，运行结果如下所示：
+
+```
+mysql> SHOW CREATE DATABASE test_db_char;
++--------------+-----------------------------------------------------+
+| Database     | Create Database                                     |
++--------------+-----------------------------------------------------+
+| test_db_char | CREATE DATABASE `test_db_char` /*!40100 DEFAULT CHARACTER SET utf8 */ |
++--------------+-----------------------------------------------------+
+1 row in set (0.00 sec)
+```
+
+“1 row in set (0.00 sec)”表示集合中有 1 行信息，处理时间为 0.00秒。时间为 0.00 秒并不代表没有花费时间，而是时间非常短，小于 0.01 秒。
+
+### MySQL查看或显示数据库
+
+数据库可以看作是一个专门存储数据对象的容器，每一个数据库都有唯一的名称，并且数据库的名称都是有实际意义的，这样就可以清晰的看出每个数据库用来存放什么数据。在 [MySQL](http://c.biancheng.net/mysql/) 数据库中存在系统数据库和自定义数据库，系统数据库是在安装 MySQL 后系统自带的数据库，自定义数据库是由用户定义创建的数据库。
+
+在 MySQL 中，可使用 **SHOW DATABASES** 语句来查看或显示当前用户权限范围以内的数据库。查看数据库的语法格式为：
+
+```
+SHOW DATABASES [LIKE '数据库名'];
+```
+
+语法说明如下：
+
+- LIKE 从句是可选项，用于匹配指定的数据库名称。LIKE 从句可以部分匹配，也可以完全匹配。
+- 数据库名由单引号`' '`包围。
+
+#### 查看所有数据库
+
+列出当前用户可查看的所有数据库：
+
+```
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+6 row in set (0.22 sec)
+```
+
+可以发现，在上面的列表中有 6 个数据库，它们都是安装 MySQL 时系统自动创建的，其各自功能如下：
+
+- information_schema：主要存储了系统中的一些数据库对象信息，比如用户表信息、列信息、权限信息、字符集信息和分区信息等。
+- mysql：MySQL 的核心数据库，类似于 SQL Server 中的 master 表，主要负责存储数据库用户、用户访问权限等 MySQL 自己需要使用的控制和管理信息。常用的比如在 mysql 数据库的 user 表中修改 root 用户密码。
+- performance_schema：主要用于收集数据库服务器性能参数。
+- sakila：MySQL 提供的样例数据库，该数据库共有 16 张表，这些数据表都是比较常见的，在设计数据库时，可以参照这些样例数据表来快速完成所需的数据表。
+- sys：MySQL 5.7 安装完成后会多一个 sys 数据库。sys 数据库主要提供了一些视图，数据都来自于 performation_schema，主要是让开发者和使用者更方便地查看性能问题。
+- world：world 数据库是 MySQL 自动创建的数据库，该数据库中只包括 3 张数据表，分别保存城市，国家和国家使用的语言等内容。
+
+#### 创建并查看数据库
+
+先创建一个名为 test_db 的数据库：
+
+mysql> CREATE DATABASE test_db;
+Query OK, 1 row affected (0.12 sec)
+
+再使用 SHOW DATABASES 语句显示权限范围内的所有数据库名，如下所示：
+
+```
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test_db            |
+| world              |
++--------------------+
+7 row in set (0.22 sec)
+```
+
+你看，刚才创建的数据库已经被显示出来了。
+
+#### 使用 LIKE 从句
+
+先创建三个数据库，名字分别为 test_db、db_test、db_test_db。
+
+1) 使用 LIKE 从句，查看与 test_db 完全匹配的数据库：
+
+```
+mysql> SHOW DATABASES LIKE 'test_db';
++--------------------+
+| Database (test_db) |
++--------------------+
+| test_db            |
++--------------------+
+1 row in set (0.03 sec)
+```
+
+2) 使用 LIKE 从句，查看名字中包含 test 的数据库：
+
+```
+mysql> SHOW DATABASES LIKE '%test%';
++--------------------+
+| Database (%test%)  |
++--------------------+
+| db_test            |
++--------------------+
+| db_test_db         |
++--------------------+
+| test_db            |
++--------------------+
+3 row in set (0.03 sec)
+```
+
+3) 使用 LIKE 从句，查看名字以 db 开头的数据库：
+
+```
+mysql> SHOW DATABASES LIKE 'db%';
++----------------+
+| Database (db%) |
++----------------+
+| db_test        |
++----------------+
+| db_test_db     |
++----------------+
+2 row in set (0.03 sec)
+```
+
+4) 使用 LIKE 从句，查看名字以 db 结尾的数据库：
+
+```
+mysql> SHOW DATABASES LIKE '%db';
++----------------+
+| Database (%db) |
++----------------+
+| db_test_db     |
++----------------+
+| test_db        |
++----------------+
+2 row in set (0.03 sec)
+```
+
+参考资料：
+
+http://c.biancheng.net/view/2413.html
+
+http://c.biancheng.net/view/2419.html
+
+## Mysql数据库字符集
+
+MySQL支持多种字符集(character set)提供用户存储数据，同时允许用不同排序规则(collation)做比较。下面基于MySQL5.7介绍一下字符集相关变量的使用。
+
+### 字符集、字符序的概念与联系
+
+在数据的存储上，MySQL提供了不同的字符集支持。而在数据的对比操作上，则提供了不同的字符序支持。MySQL提供了不同级别的设置，包括server级、database级、table级、column级，可以提供非常精准的设置。
+
+什么是字符集、字符序?简单的来说：
+
+字符集(character set)：定义了字符以及字符的编码。
+
+字符序(collation)：定义了字符的比较规则。
+
+举个例子：
+
+有四个字符：A、B、a、b，这四个字符的编码分别是A = 0, B = 1, a = 2, b = 3。这里的字符 + 编码就构成了字符集(character set)。
+
+### MySQL支持的字符集、字符序
+
+MySQL支持多种字符集 与 字符序。
+
+一个字符集对应至少一种字符序(一般是1对多)。
+
+两个不同的字符集不能有相同的字符序。
+
+每个字符集都有默认的字符序。
+
+#### 查看支持的字符集
+
+可以通过以下方式查看MYSQL支持的字符集。
+
+SHOW CHARACTER SET;
+
+select * from information_schema.HARACTER_SETS;
+
+![fb67ecfb60df63ab69fc2911fbcdf08f.png](/img/fb67ecfb60df63ab69fc2911fbcdf08f.png)
+
+#### 查看支持的字符序
+
+可以通过如下方式查看MYSQL支持的字符序。
+
+SHOW COLLATION WHERECharset='utf8';
+
+SELECT * FROM information_schema.COLLATIONS WHERE CHARACTER_SET_NAME="utf8";
+
+![4d83522b27d1a11bb429e8cab50499bd.png](/img/4d83522b27d1a11bb429e8cab50499bd.png)
+
+### 系统的字符集(character_set_system)
+
+character_set_system为元数据的字符集，即所有的元数据都使用同一个字符集。试想如果元数据采用不同字符集，INFORMATION_SCHEMA中的相关信息在不同行之间就很难展示。同时该字符集要能够支持多种语言，方便不同语言人群使用自己的语言命名database、table、column。MySQL选择UTF-8作为元数据编码，用源码固定。
+
+查看system字符集：
+
+```
+select @@global.character_set_system;
+```
+
+![638f0e8f46ac44fbff88037d0baefa50.png](/img/638f0e8f46ac44fbff88037d0baefa50.png)
+
+因为很少设定，所以就不做指定介绍了。
+
+### server的字符集、字符序(character_set_server/collation_server)
+
+当create database没有指定charset/collation就会用character_set_server/collation_server，这两个变量可以动态设置，有session/global级别。
+
+在源码中character_set_server/collation_server实际对应一个变量，因为一个collation对应着一个charset，所以源码中只记录CHARSET_INFO结构的collation_server即可。当修改character_set_server，会选择对应charset的默认collation。对于其他同时有charset和collation的变量，源码记录也都是记录collation。
+
+character_set_server、collation_server分别对应server字符集、server字符序。
+
+#### 查看server字符集、字符序
+
+分别对应character_set_server、collation_server两个系统变量。
+
+```
+SET GLOBALSHOW_COMPATIBILITY_56=ON;
+
+SHOW VARIABLES LIKE "character_set_server";
+
+SHOW VARIABLES LIKE "collation_server";
+```
+
+![87e25a8e5b2bf572682bed540fe64d30.png](/img/87e25a8e5b2bf572682bed540fe64d30.png)
+
+#### 启动服务时指定
+
+可以在MySQL服务启动时，指定server字符集、字符序。如不指定，默认的字符序分别为latin1、latin1_swedish_ci
+
+mysqld--character-set-server=latin1--collation-server=latin1_swedish_ci
+
+#### 配置文件指定
+
+除了在命令行参数里指定，也可以在配置文件里指定，如下所示。
+
+```
+[client]
+
+default-character-set=utf8
+
+[mysql]
+
+default-character-set=utf8
+
+[mysqld]
+
+collation-server=utf8_unicode_ci
+
+init-connect='SET NAMES utf8'
+
+character-set-server=utf8
+```
+
+#### 运行时修改
+
+例子：运行时修改(重启后会失效，如果想要重启后保持不变，需要写进配置文件里)
+
+```
+mysql>SETcharacter_set_server=utf8;
+```
+
+#### 编译时指定默认字符集、字符序
+
+character_set_server、collation_server的默认值，可以在MySQL编译时，通过编译选项指定：
+
+```
+cmake .-DDEFAULT_CHARSET=latin1-DDEFAULT_COLLATION=latin1_german1_ci
+```
+
+#### 实例:通过设置session中不同的character_set_server使创建database的默认charset和collation不同。
+
+```
+set character_set_server='utf8';
+
+create database d1;
+
+select * from information_schema.schemata where SCHEMA_NAME='d1';
+
+set character_set_server='latin1';
+
+create database d2;
+
+select * from SCHEMATA where SCHEMA_NAME='d2';
+```
+
+![7f5ee8ba60b754c89aead24c48604044.png](/img/7f5ee8ba60b754c89aead24c48604044.png)
+
+### database的字符集、字符序(character_set_database/collation_database)
+
+指定数据库级别的字符集、字符序。同一个MySQL服务下的数据库，可以分别指定不同的字符集/字符序。该变量值session级别表示当前database的charset/collation，在后面的源码版本中该变量可能修正为只读，不建议修改该值。其global级别变量后面也会移除。
+
+#### 设置数据的字符集/字符序
+
+可以在创建、修改数据库的时候，通过CHARACTER SET、COLLATE指定数据库的字符集、排序规则。
+
+创建数据库：
+```
+CREATE DATABASE db_name
+
+[[DEFAULT] CHARACTER SET charset_name]
+
+[[DEFAULT] COLLATE collation_name]
+```
+
+修改数据库：
+
+ALTER DATABASE db_name
+
+[[DEFAULT] CHARACTER SET charset_name]
+
+[[DEFAULT] COLLATE collation_name]
+
+例子：创建数据库test_schema，字符集设置为utf8，此时默认的排序规则为utf8_general_ci。
+
+CREATE DATABASE `test_schema` DEFAULT CHARACTER SET utf8;
+
+#### 查看数据库的字符集/字符序
+
+有3种方式可以查看数据库的字符集/字符序。
+
+查看test_schema的字符集、排序规则。(需要切换默认数据库)：
+```
+mysql>use test_schema;
+
+mysql>SELECT @@character_set_database, @@collation_database;
+```
+
+查看test_schema的字符集、数据库(不需要切换默认数据库)：
+```
+
+mysql>SELECT SCHEMA_NAME, DEFAULT_CHARACTER_SET_NAME, DEFAULT_COLLATION_NAME
+
+FROM information_schema.SCHEMATA WHERE schema_name="test_schema";
+```
+
+查看创建数据库的语句，来查看字符集：
+```
+
+mysql>SHOW CREATE DATABASE test_schema;
+```
+
+### table的字符集、字符序
+
+创建表、修改表的语法如下，可通过CHARACTER SET、COLLATE设置字符集、字符序。
+```
+
+CREATE TABLE tbl_name (column_list)
+
+[[DEFAULT] CHARACTER SET charset_name]
+
+[COLLATE collation_name]]
+```
+```
+
+ALTER TABLE tbl_name
+
+[[DEFAULT] CHARACTER SET charset_name]
+
+[COLLATE collation_name]
+```
+
+#### 创建table并指定字符集/字符序
+
+指定字符集为utf8，字符序则采用默认的。
+
+```
+
+CREATE TABLE `test_schema`.`test_table` (
+
+`id` INT NOT NULL COMMENT '',
+
+PRIMARY KEY (`id`) COMMENT '')
+
+DEFAULT CHARACTER SET=utf8;
+```
+
+#### 查看table的字符集/字符序
+
+同样，有3种方式可以查看table的字符集/字符序。
+
+方式一：通过SHOW TABLE STATUS查看table状态，注意Collation为utf8_general_ci，对应的字符集为utf8。
+```
+SHOW TABLE STATUS FROM test_schema \G;
+```
+
+
+方式二：查看information_schema.TABLES的信息。
+```
+
+USE test_schema;
+
+SELECT TABLE_COLLATION FROM information_schema.TABLES WHERE
+```
+
+方式三：通过SHOW CREATE TABLE确认。
+```
+
+SHOW CREATE TABLE test_table;
+```
+
+#### table字符集、字符序如何确定
+
+假设CHARACTER SET、COLLATE的值分别是charset_name、collation_name。如果创建table时：
+
+明确了charset_name、collation_name，则采用charset_name、collation_name。
+
+只明确了charset_name，但collation_name未明确，则字符集采用charset_name，字符序采用charset_name对应的默认字符序。
+
+只明确了collation_name，但charset_name未明确，则字符序采用collation_name，字符集采用collation_name关联的字符集。
+
+charset_name、collation_name均未明确，则采用数据库的字符集、字符序设置。
+
+### column的字符集、排序
+
+类型为CHAR、VARCHAR、TEXT的列，可以指定字符集/字符序，语法如下：
+
+```
+col_name {CHAR | VARCHAR | TEXT} (col_length)
+
+[CHARACTER SET charset_name]
+
+[COLLATE collation_name]
+```
+
+
+
+#### 新增column并指定字符集/排序规则
+
+例子如下：(创建table类似)
+
+```
+mysql>ALTER TABLE test_table ADD COLUMN char_column VARCHAR(25) CHARACTER SET utf8;
+```
+
+
+
+#### 查看column的字符集/字符序
+
+```
+mysql>SELECT CHARACTER_SET_NAME, COLLATION_NAME FROM information_schema.COLUMNS WHERETABLE_SCHEMA="test_schema"ANDTABLE_NAME="test_table"ANDCOLUMN_NAME="char_column";
+
++--------------------+-----------------+
+
+| CHARACTER_SET_NAME | COLLATION_NAME |
+
++--------------------+-----------------+
+
+| utf8 | utf8_general_ci |
+
++--------------------+-----------------+
+1 row in set (0.00 sec)
+```
+
+#### column字符集/排序规则确定
+
+假设CHARACTER SET、COLLATE的值分别是charset_name、collation_name：
+
+如果charset_name、collation_name均明确，则字符集、字符序以charset_name、collation_name为准。
+
+只明确了charset_name，collation_name未明确，则字符集为charset_name，字符序为charset_name的默认字符序。
+
+只明确了collation_name，charset_name未明确，则字符序为collation_name，字符集为collation_name关联的字符集。
+
+charset_name、collation_name均未明确，则以table的字符集、字符序为准。
+
+参考资料：
+
+https://blog.csdn.net/weixin_31002509/article/details/113121089
+
+https://blog.csdn.net/haogexiaole/article/details/80739503
+
+https://www.cnblogs.com/haore147/p/3618028.html
