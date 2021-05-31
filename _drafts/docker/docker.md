@@ -1,5 +1,4 @@
 ---
-
 layout: post
 title:  "docker"
 author: GEJT
@@ -11,6 +10,7 @@ excerpt: docker常用命令，centos7安装docker,docker安装mysql5.7
 permalink: /cmd-docker/000
 typora-root-url: ..\..\
 typora-copy-images-to: ..\..\img
+
 ---
 
 ## centos7安装docker
@@ -20,13 +20,16 @@ typora-copy-images-to: ..\..\img
 ```
 sudo yum install -y yum-utils
 ```
+
 ### 设置docker下载respository
+
 ```
 sudo yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
 
 ```
+
 ### 安装docker-ce,并验证安装
 
 ```
@@ -41,7 +44,6 @@ systemctl stop docker
 ### 设置阿里云镜像加速
 
 ```
-
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
@@ -67,6 +69,7 @@ sudo systemctl disable containerd.service
 ```
 
 ## docker安装mysql5.7
+
 ### 拉取mysql5.7镜像
 
 ```
@@ -75,7 +78,9 @@ docker pull mysql:5.7
 //查看本地镜像
 docker images
 ```
+
 ### 创建并运行容器，指定数据目录
+
 ```
 //创建运行mysql容器
 docker run --name mysql-test -p 3306:3306 -v /mysql/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
@@ -84,6 +89,7 @@ docker ps
 //查看所有容器
 docker ps -a
 ```
+
 #### 查看生成的数据库文件
 
 ```
@@ -113,16 +119,7 @@ drwxr-x---. 2 polkitd input     8192 5月  19 10:05 sys
 #### 停止容器，删除容器和镜像
 
 ```
-//停止运行容器
-docker stop mysql-test
-//启动运行容器
-docker start mysql-test
-//删除容器
-docker rm mysql-test
-//强制删除容器
-docker rm -f mysql-test
-//删除镜像
-docker rmi mysql:5.7
+//停止运行容器docker stop mysql-test//启动运行容器docker start mysql-test//删除容器docker rm mysql-test//强制删除容器docker rm -f mysql-test//删除镜像docker rmi mysql:5.7
 ```
 
 
@@ -142,3 +139,71 @@ docker run --name mysql-test2 -p 3306:3306 -v /mysql/init:/docker-entrypoint-ini
 ```
 
 > 容器启动后mysql实例会从/docker-entrypoint-initdb.d目录下查找.sh 、.sql和.sql.gz结尾的文件并执行
+
+## docker安装最新版tomcat
+
+### 拉取最新tomcat镜像
+
+```
+docker pull tomcat
+```
+### 启动tomcat并映射80端口
+```
+docker run -p 80:8080 --name tomcat8080 -d tomcat
+```
+### 浏览器访问
+![image-20210528095406959](/img/image-20210528095406959.png)
+
+**注：** 这里是访问正常了，因为tomcat下没有manager-ui
+
+### docker-tomcat容器的内部结构
+
+```
+[root@VM-8-10-centos webapps]# docker exec -it tomcat8080 /bin/bash
+root@b59da814ae38:/usr/local/tomcat# pwd
+/usr/local/tomcat
+root@cf86d45b9d09:/usr/local/tomcat# ls
+BUILDING.txt  CONTRIBUTING.md  LICENSE	NOTICE	README.md  RELEASE-NOTES  RUNNING.txt  bin  conf  lib  logs  native-jni-lib  temp  webapps  webapps.dist  work
+```
+
+### 强制删除tomcat容器
+
+```
+[root@VM-8-10-centos webapps]# docker rm -f tomcat8080
+tomcat8080
+[root@VM-8-10-centos webapps]# 
+[root@VM-8-10-centos webapps]# 
+[root@VM-8-10-centos webapps]# docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED      STATUS      PORTS                                                  NAMES
+70ec2c069e02   mysql:5.7   "docker-entrypoint.s…"   2 days ago   Up 2 days   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp   mysql-test
+
+```
+
+### 启动容器并映射本地磁盘目录
+
+#### 创建index.html
+
+```
+mkdir -p /tomcat/webapps/ROOT
+cd /tomcat/webapps/ROOT
+vi index.html
+```
+
+#### index.html
+
+```
+helloWorld!!!
+```
+
+#### 启动容器并映射本地磁盘目录
+
+```
+docker run -p 80:8080 -v /tomcat/webapps:/usr/local/tomcat/webapps  --name tomcat8080 -d tomcat
+```
+
+运行效果
+
+![image-20210528100327576](/img/image-20210528100327576.png)
+
+同理，你也可以把log和conf目录映射到本地磁盘。****
+
