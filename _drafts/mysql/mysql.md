@@ -3072,3 +3072,370 @@ SELECT CAST(NOW() AS DATE)　　->2014-12-18
 https://www.cnblogs.com/kissdodog/p/4168721.html
 
 http://c.biancheng.net/mysql/function/
+
+# Mysql视图
+
+## 什么是视图
+
+通俗的讲，视图就是一条SELECT语句执行后返回的结果集。所以我们在创建视图的时候，主要的工作就落在创建这条SQL查询语句上。
+
+视图是一个**虚拟表**，是sql的查询结果，其内容由查询定义。同真实的表一样，视图包含一系列带有名称的列和行数据，在使用视图时动态生成。视图的数据变化会影响到基表，基表的数据变化也会影响到视图[insert update delete ] ; 创建视图需要create view 权限，并且对于查询涉及的列有select权限；使用create or replace 或者 alter修改视图，那么还需要改视图的drop权限。
+
+## 视图的特性
+
+视图是对若干张基本表的引用，一张虚表，查询语句执行的结果，不存储具体的数据（基本表数据发生了改变，视图也会跟着改变）；
+
+可以跟基本表一样，进行增删改查操作(ps:增删改操作有条件限制)；
+
+ 　![img](https://img2018.cnblogs.com/blog/1215492/201903/1215492-20190306103335338-1776417010.png)
+
+## 视图使用基本语法
+
+### 创建视图
+
+```
+create view  视图名  as  select 字段名 from 表名;
+```
+
+### 修改视图
+
+```
+alter view 视图名 as select 语句;
+alter view 视图名 as  select 视图;
+```
+
+### 显示视图创建情况
+
+```
+show create view 视图名;
+```
+
+### 查看视图
+
+```
+Show tables；
+Show table status [ from db_name ] [ like ‘pattern’ ]；
+SELECT * FROM information_schema.views where table_name = 'my_view';
+```
+
+### 删除视图
+
+```
+drop view 视图名[,视图名…];
+```
+
+### 重命名视图
+
+```
+Rename table 视图名 to 新视图名;
+```
+
+## 视图使用示例
+
+### 参考表结构
+
+```
+-- ----------------------------
+
+-- Table structure for `course`
+
+-- ----------------------------
+
+DROP TABLE IF EXISTS `course`;
+
+CREATE TABLE `course` (
+
+ `id` bigint(20) NOT NULL AUTO_INCREMENT,
+
+ `name` varchar(200) NOT NULL,
+
+ `description` varchar(500) NOT NULL,
+
+ PRIMARY KEY (`id`)
+
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+
+
+-- ----------------------------
+
+-- Records of course
+
+-- ----------------------------
+
+INSERT INTO `course` VALUES ('1', 'JAVA', 'JAVA课程');
+
+INSERT INTO `course` VALUES ('2', 'C++', 'C++课程');
+
+INSERT INTO `course` VALUES ('3', 'C语言', 'C语言课程');
+
+
+
+-- ----------------------------
+
+-- Table structure for `user`
+
+-- ----------------------------
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+
+ `id` bigint(20) NOT NULL AUTO_INCREMENT,
+
+ `account` varchar(255) NOT NULL,
+
+ `name` varchar(255) NOT NULL,
+
+ `address` varchar(255) DEFAULT NULL,
+
+ `others` varchar(200) DEFAULT NULL,
+
+ `others2` varchar(200) DEFAULT NULL,
+
+ PRIMARY KEY (`id`)
+
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+
+
+-- ----------------------------
+
+-- Records of user
+
+-- ----------------------------
+
+INSERT INTO `user` VALUES ('1', 'user1', '小陈', '美国', '1', '1');
+
+INSERT INTO `user` VALUES ('2', 'user2', '小张', '日本', '2', '2');
+
+INSERT INTO `user` VALUES ('3', 'user3', '小王', '中国', '3', '3');
+
+
+
+-- ----------------------------
+
+-- Table structure for `user_course`
+
+-- ----------------------------
+
+DROP TABLE IF EXISTS `user_course`;
+
+CREATE TABLE `user_course` (
+
+ `id` bigint(20) NOT NULL AUTO_INCREMENT,
+
+ `userid` bigint(20) NOT NULL,
+
+ `courseid` bigint(20) NOT NULL,
+
+ PRIMARY KEY (`id`)
+
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+
+
+-- ----------------------------
+
+-- Records of user_course
+
+-- ----------------------------
+
+INSERT INTO `user_course` VALUES ('1', '1', '2');
+
+INSERT INTO `user_course` VALUES ('2', '1', '3');
+
+INSERT INTO `user_course` VALUES ('3', '2', '1');
+
+INSERT INTO `user_course` VALUES ('4', '2', '2');
+
+INSERT INTO `user_course` VALUES ('5', '2', '3');
+
+INSERT INTO `user_course` VALUES ('6', '3', '2');
+```
+
+
+
+### 查表原语句
+
+```
+SELECT
+    `uc`.`id` AS `id`,
+    `u`.`name` AS `username`,
+    `c`.`name` AS `coursename`
+FROM
+    `user` `u`
+LEFT JOIN `user_course` `uc` ON ((`u`.`id` = `uc`.`userid`))
+LEFT JOIN `course` `c` ON ((`uc`.`courseid` = `c`.`id`))
+WHERE
+    u.`name` = '小张'
+```
+
+### 创建单表视图
+
+```
+DROP VIEW
+IF EXISTS `view_user_keyinfo`;
+
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `view_user_keyinfo` AS SELECT
+    `u`.`id` AS `id`,
+    `u`.`account` AS `account`,
+    `u`.`name` AS `username`
+FROM
+    `user` `u`;
+			进行增删改操作如下，操作成功（注意user表中的其它字段要允许为空，否则操作失败）：
+			INSERT INTO view_user_keyinfo (account, username)
+VALUES
+    ('test1', 'test1');
+			DELETE
+FROM
+    view_user_keyinfo
+WHERE
+    username = 'test1';
+			UPDATE view_user_keyinfo
+SET username = 'updateuser'
+WHERE
+    id = 1
+```
+
+### 创建多表视图
+
+```
+DROP VIEW
+IF EXISTS `view_user_course`;
+
+CREATE ALGORITHM = UNDEFINED 
+DEFINER = `root`@`localhost` 
+SQL SECURITY DEFINER 
+VIEW `view_user_course` AS (
+    SELECT
+        `uc`.`id` AS `id`,
+        `u`.`name` AS `username`,
+        `c`.`name` AS `coursename`
+    FROM
+        (
+            (
+                `user` `u`
+                LEFT JOIN `user_course` `uc` ON ((`u`.`id` = `uc`.`userid`))
+            )
+            LEFT JOIN `course` `c` ON ((`uc`.`courseid` = `c`.`id`))
+        )
+);
+			几点说明（MySQL中的视图在标准SQL的基础之上做了扩展）
+				ALGORITHM=UNDEFINED：指定视图的处理算法；
+				DEFINER=`root`@`localhost`：指定视图创建者；
+				SQL SECURITY DEFINER：指定视图查询数据时的安全验证方式；
+	从视图查询数据
+		SELECT
+    vuc.username,
+    vuc.coursename
+FROM
+    view_user_course vuc
+WHERE
+     vuc.username = '小张'
+```
+
+### 视图增删改数据
+
+#### 正确的示例
+
+视图与表是一对一关系情况：如果没有其它约束（如视图中没有的字段，在基本表中是必填字段情况），是可以进行增删改数据操作
+
+```
+DROP VIEW
+IF EXISTS `view_user_keyinfo`;
+
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `view_user_keyinfo` AS SELECT
+    `u`.`id` AS `id`,
+    `u`.`account` AS `account`,
+    `u`.`name` AS `username`
+FROM
+    `user` `u`;
+    
+#进行增删改操作如下，操作成功（注意user表中的其它字段要允许为空，否则操作失败）：
+				INSERT INTO view_user_keyinfo (account, username)
+VALUES
+    ('test1', 'test1');
+    
+DELETE
+FROM
+    view_user_keyinfo
+WHERE
+    username = 'test1';
+				UPDATE view_user_keyinfo
+SET username = 'updateuser'
+WHERE
+    id = 1
+```
+
+视图与表是一对多关系情况：如果只修改一张表的数据，且没有其它约束（如视图中没有的字段，在基本表中是必填字段情况），是可以进行改数据操作
+
+```
+update view_user_course set coursename='JAVA' where id=1;
+update view_user_course set username='test2' where id=3;
+```
+
+#### 错误的示例
+
+```
+update view_user_course set username='test',coursename='JAVASCRIPT' where id=3
+```
+
+操作失败，提示错误信息如下：
+
+```
+
+[SQL] update view_user_course set username='test',coursename='JAVASCRIPT' where id=3
+
+[Err] 1393 - Can not modify more than one base table through a join view 'demo.view_user_course'
+```
+
+因为不能在一张由多张关联表连接而成的视图上做同时修改两张表的操作；
+
+#### 其他错误示例
+
+```
+delete from view_user_course where id=3;
+insert into view_user_course(username, coursename) VALUES('2','3');
+```
+
+## 使用场景
+
+- 权限控制的时候，不希望用户访问表中某些含敏感信息的列，比如salary...
+
+- 关键信息来源于多个复杂关联表，可以创建视图提取我们需要的信息，简化操作；
+- 大数据分表时可以用到
+
+比如,表的行数超过200万行时,就会变慢,
+
+可以把一张的表的数据拆成4张表来存放.
+
+News表
+
+Newsid, 1,2,3,4
+
+News1,news2,news3,news4表
+
+ 
+
+把一张表的数据分散到4张表里,分散的方法很多,
+
+最常用可以用id取模来计算.
+
+Id%4+1 = [1,2,3,4]
+
+比如 $_GET['id'] = 17,
+
+17%4 + 1 = 2, $tableName = 'news'.'2'
+
+Select * from news2 where id = 17;
+
+**还可以用视图, 把4张表形成一张视图**
+
+Create view news as select from n1 union select from n2 union.........
+
+参考资料
+
+​	https://www.cnblogs.com/cshaptx4869/p/10481749.html
+​	https://www.cnblogs.com/chenpi/p/5133648.html
+​	http://c.biancheng.net/view/2584.html
