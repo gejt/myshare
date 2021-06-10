@@ -13,13 +13,13 @@ typora-copy-images-to: ..\..\img
 
 ---
 
-# Mysql
+# MySQL介绍
 
 ## MySQL简介
 
 ![mysql](/img/mysql.jpg)
 
-### 什么是Mysql?
+### 什么是MySQL?
 
 MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。
 MySQL是一种关系型数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。
@@ -304,7 +304,7 @@ https://blog.csdn.net/qq_29168493/article/details/79066399
 
 
 
-## 安装Mysql
+## 安装MySQL
 
 ### Windows 上安装 MySQL
 
@@ -427,7 +427,7 @@ Port number：输入3306，也可以输入其他最好是3306-3309之间。
 
 ![img](/img/1571831317-4097-20170722231638887-180558399.png)
 
-19.Mysql server :apply configuration（应用配置页面），选择execute进行安装配置
+19.MySQL server :apply configuration（应用配置页面），选择execute进行安装配置
 
 ![img](/img/1571831318-8984-20170722231654278-649027984.png)
 
@@ -443,7 +443,7 @@ Port number：输入3306，也可以输入其他最好是3306-3309之间。
 
 ![img](/img/1571831318-2952-20170722231755762-1299837152.png)
 
-23.Mysql router :apply configuration（应用配置页面）点击execute,
+23.MySQL router :apply configuration（应用配置页面）点击execute,
 
 ![img](/img/1571831319-7917-20170722231811528-357673493.png)
 
@@ -493,10 +493,10 @@ https://www.cnblogs.com/xiaodingdong/p/7223245.html
 
 ### Linux/UNIX 上安装 MySQL
 
-Linux平台上推荐使用RPM包来安装Mysql,MySQL AB提供了以下RPM包的下载地址：
+Linux平台上推荐使用RPM包来安装MySQL,MySQL AB提供了以下RPM包的下载地址：
 
 - **MySQL** - MySQL服务器。你需要该选项，除非你只想连接运行在另一台机器上的MySQL服务器。
-- **MySQL-client** - MySQL 客户端程序，用于连接并操作Mysql服务器。
+- **MySQL-client** - MySQL 客户端程序，用于连接并操作MySQL服务器。
 - **MySQL-devel** - 库和包含文件，如果你想要编译其它MySQL客户端，例如Perl模块，则需要安装该RPM包。
 - **MySQL-shared** - 该软件包包含某些语言和应用程序需要动态装载的共享库(libmysqlclient.so*)，使用MySQL。
 - **MySQL-bench** - MySQL数据库服务器的基准和性能测试工具。
@@ -590,13 +590,13 @@ linux上该命令将输出以下结果，该结果基于你的系统信息：
 mysqladmin  Ver 8.23 Distrib 5.0.9-0, for redhat-linux-gnu on i386
 ```
 
-如果以上命令执行后未输出任何信息，说明你的Mysql未安装成功。
+如果以上命令执行后未输出任何信息，说明你的MySQL未安装成功。
 
 ------
 
-#### 使用 MySQL Client(Mysql客户端) 执行简单的SQL命令
+#### 使用 MySQL Client(MySQL客户端) 执行简单的SQL命令
 
-你可以在 MySQL Client(Mysql客户端) 使用 mysql 命令连接到 MySQL 服务器上，默认情况下 MySQL 服务器的登录密码为空，所以本实例不需要输入密码。
+你可以在 MySQL Client(MySQL客户端) 使用 mysql 命令连接到 MySQL 服务器上，默认情况下 MySQL 服务器的登录密码为空，所以本实例不需要输入密码。
 
 命令如下：
 
@@ -604,7 +604,7 @@ mysqladmin  Ver 8.23 Distrib 5.0.9-0, for redhat-linux-gnu on i386
 [root@host]# mysql
 ```
 
-以上命令执行后会输出 mysql>提示符，这说明你已经成功连接到Mysql服务器上，你可以在 mysql> 提示符执行SQL命令：
+以上命令执行后会输出 mysql>提示符，这说明你已经成功连接到MySQL服务器上，你可以在 mysql> 提示符执行SQL命令：
 
 ```
 mysql> SHOW DATABASES;
@@ -619,15 +619,15 @@ mysql> SHOW DATABASES;
 
 ------
 
-#### Mysql安装后需要做的
+#### MySQL安装后需要做的
 
-Mysql安装成功后，默认的root用户密码为空，你可以使用以下命令来创建root用户的密码：
+MySQL安装成功后，默认的root用户密码为空，你可以使用以下命令来创建root用户的密码：
 
 ```
 [root@host]# mysqladmin -u root password "new_password";
 ```
 
-现在你可以通过以下命令来连接到Mysql服务器：
+现在你可以通过以下命令来连接到MySQL服务器：
 
 ```
 [root@host]# mysql -u root -p
@@ -722,7 +722,7 @@ $ docker run -itd --name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 m
 
 https://www.runoob.com/docker/docker-install-mysql.html
 
-### Mysql设置远程访问权限
+### MySQL设置远程访问权限
 
 #### 方法一
 
@@ -787,7 +787,7 @@ grant all privileges on *.* to admin@"%" identified by 'password' with grant opt
 
 https://www.cnblogs.com/ashe666/p/11305466.html
 
-# Mysql数据库
+# MySQL数据库
 
 ## 创建数据库
 
@@ -994,7 +994,7 @@ http://c.biancheng.net/view/2413.html
 
 http://c.biancheng.net/view/2419.html
 
-## Mysql数据库字符集
+## MySQL数据库字符集
 
 MySQL支持多种字符集(character set)提供用户存储数据，同时允许用不同排序规则(collation)做比较。下面基于MySQL5.7介绍一下字符集相关变量的使用。
 
@@ -1349,7 +1349,7 @@ MySQL 一直没有修复这个 bug，他们在 2010 年发布了一个叫作 utf
 
 https://www.cnblogs.com/wbxk/p/10785517.html
 
-# Mysql数据库表结构
+# MySQL数据库表结构
 
 ## MySQL中数据类型介绍
 
@@ -1706,7 +1706,7 @@ https://www.runoob.com/mysql/mysql-create-tables.html
 
 为实现数据库中表规范化设计的目的，有时候需要对之前已经创建的表进行结构修改或者调整。
 
-在 Mysql 中可以使用 **ALTER TABLE** 语句来改变原有表的结构，例如增加或删减列、创建或取消索引、更改原有列类型、重新命名列或表等。
+在 MySQL 中可以使用 **ALTER TABLE** 语句来改变原有表的结构，例如增加或删减列、创建或取消索引、更改原有列类型、重新命名列或表等。
 
 ### 基本语法
 
@@ -2659,7 +2659,7 @@ https://www.runoob.com/mysql/mysql-select-query.html
 
 
 
-# Mysql函数
+# MySQL函数
 
 ## 什么是函数：
 
@@ -2782,7 +2782,7 @@ select myselect5("python");
 
 https://www.cnblogs.com/progor/p/8871480.html
 
-## Mysql内置函数
+## MySQL内置函数
 
 可以对 MySQL 常用函数进行简单的分类，大概包括数值型函数、字符串型函数、日期时间函数、聚合函数等。
 
@@ -3073,7 +3073,7 @@ https://www.cnblogs.com/kissdodog/p/4168721.html
 
 http://c.biancheng.net/mysql/function/
 
-# Mysql视图
+# MySQL视图
 
 ## 什么是视图
 
@@ -3439,3 +3439,958 @@ Create view news as select from n1 union select from n2 union.........
 ​	https://www.cnblogs.com/cshaptx4869/p/10481749.html
 ​	https://www.cnblogs.com/chenpi/p/5133648.html
 ​	http://c.biancheng.net/view/2584.html
+
+
+
+
+
+# MySQL存储过程
+
+## 什么是存储过程
+
+SQL语句需要先编译然后执行，而存储过程（Stored Procedure）是一组为了完成特定功能的SQL语句集，经编译后存储在数据库中，用户通过指定存储过程的名字并给定参数（如果该存储过程带有参数）来调用执行它。
+
+存储过程是可编程的函数，在数据库中创建并保存，可以由SQL语句和控制结构组成。当想要在不同的应用程序或平台上执行相同的函数，或者封装特定功能时，存储过程是非常有用的。数据库中的存储过程可以看做是对编程中面向对象方法的模拟，它允许控制数据的访问方式。
+
+存储过程的优点：
+
+(1).**增强SQL语言的功能和灵活性**：存储过程可以用控制语句编写，有很强的灵活性，可以完成复杂的判断和较复杂的运算。
+
+(2).**标准组件式编程**：存储过程被创建后，可以在程序中被多次调用，而不必重新编写该存储过程的SQL语句。而且数据库专业人员可以随时对存储过程进行修改，对应用程序源代码毫无影响。
+
+(3).**较快的执行速度**：如果某一操作包含大量的Transaction-SQL代码或分别被多次执行，那么存储过程要比批处理的执行速度快很多。因为存储过程是预编译的。在首次运行一个存储过程时查询，优化器对其进行分析优化，并且给出最终被存储在系统表中的执行计划。而批处理的Transaction-SQL语句在每次运行时都要进行编译和优化，速度相对要慢一些。
+
+(4).减少网络流量：针对同一个数据库对象的操作（如查询、修改），如果这一操作所涉及的Transaction-SQL语句被组织进存储过程，那么当在客户计算机上调用该存储过程时，网络中传送的只是该调用语句，从而大大减少网络流量并降低了网络负载。
+
+(5).作为一种安全机制来充分利用：通过对执行某一存储过程的权限进行限制，能够实现对相应的数据的访问权限的限制，避免了非授权用户对数据的访问，保证了数据的安全。
+
+MySQL 5.0 版本开始支持存储过程。
+
+存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。
+
+存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。
+
+存储过程思想上很简单，就是数据库 SQL 语言层面的代码封装与重用。
+
+### 优点
+
+- 存储过程可封装，并隐藏复杂的商业逻辑。
+- 存储过程可以回传值，并可以接受参数。
+- 存储过程无法使用 SELECT 指令来运行，因为它是子程序，与查看表，数据表或用户定义函数不同。
+- 存储过程可以用在数据检验，强制实行商业逻辑等。
+
+### 缺点
+
+- 存储过程，往往定制化于特定的数据库上，因为支持的编程语言不同。当切换到其他厂商的数据库系统时，需要重写原有的存储过程。
+- 存储过程的性能调校与撰写，受限于各种数据库系统。
+
+
+
+## 存储过程的创建和调用
+
+存储过程就是具有名字的一段代码，用来完成一个特定的功能。
+创建的存储过程保存在数据库的数据字典中。
+MYSQL 存储过程中的关键语法
+声明语句结束符，可以自定义:
+
+```
+DELIMITER $$
+或
+DELIMITER //
+```
+
+### 声明存储过程
+
+```
+CREATE PROCEDURE demo_in_parameter(IN p_in int)     
+```
+
+### 存储过程开始和结束符号
+
+```
+BEGIN .... END    
+```
+
+### 变量赋值
+
+```
+SET @p_in=1  
+```
+
+### 变量定义
+
+```
+DECLARE l_int int unsigned default 4000000; 
+```
+
+### 创建mysql存储过程、存储函数
+
+```
+create procedure 存储过程名(参数)
+```
+
+### 创建存储过程
+
+​				
+
+```
+CREATE
+    [DEFINER = { user | CURRENT_USER }]
+　PROCEDURE sp_name ([proc_parameter[,...]])
+    [characteristic ...] routine_body
+
+proc_parameter:
+    [ IN | OUT | INOUT ] param_name type
+
+characteristic:
+    COMMENT 'string'
+  | LANGUAGE SQL
+  | [NOT] DETERMINISTIC
+  | { CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA }
+  | SQL SECURITY { DEFINER | INVOKER }
+
+routine_body:
+　　Valid SQL routine statement
+
+[begin_label:] BEGIN
+　　[statement_list]
+　　　　……
+END [end_label]
+```
+
+### 调用存储过程
+
+```
+call sp_name[(传参)];
+```
+
+### 存储过程体
+
+存储过程体包含了在过程调用时必须执行的语句，例如：dml、ddl语句，if-then-else和while-do语句、声明变量的declare语句等
+过程体格式：以begin开始，以end结束(可嵌套)
+
+```
+BEGIN
+　　BEGIN
+　　　　BEGIN
+　　　　　　statements; 
+　　　　END
+　　END
+END
+```
+
+**注意**：每个嵌套块及其中的每条语句，必须以分号结束，表示过程体结束的begin-end块(又叫做复合语句compound statement)，则不需要分号。
+为语句块贴标签:
+
+```
+[begin_label:] BEGIN
+　　[statement_list]
+END [end_label]
+```
+
+例如：
+
+```
+label1: BEGIN
+　　label2: BEGIN
+　　　　label3: BEGIN
+　　　　　　statements; 
+　　　　END label3 ;
+　　END label2;
+END label1
+```
+
+标签有两个作用：
+
+1. 增强代码的可读性
+2. 在某些语句(例如:leave和iterate语句)，需要用到标签
+
+### 实例
+
+#### 创建数据库，备份数据表用于示例操作
+
+```
+mysql> create database db1;
+mysql> use db1;    
+mysql> create table PLAYERS as select * from TENNIS.PLAYERS;
+mysql> create table MATCHES  as select * from TENNIS.MATCHES;
+					mysql> select * from MATCHES;
++---------+--------+----------+-----+------+
+| MATCHNO | TEAMNO | PLAYERNO | WON | LOST |
++---------+--------+----------+-----+------+
+|       1 |      1 |        6 |   3 |    1 |
+|       7 |      1 |       57 |   3 |    0 |
+|       8 |      1 |        8 |   0 |    3 |
+|       9 |      2 |       27 |   3 |    2 |
+|      11 |      2 |      112 |   2 |    3 |
++---------+--------+----------+-----+------+
+5 rows in set (0.00 sec)
+```
+
+
+#### 创建存储过程用于删除除给定球员参加的所有比赛
+
+```
+mysql> delimiter $$　　#将语句的结束符号从分号;临时改为两个$$(可以是自定义)
+mysql> CREATE PROCEDURE delete_matches(IN p_playerno INTEGER)
+​    -> BEGIN
+​    -> 　　DELETE FROM MATCHES
+​    ->    WHERE playerno = p_playerno;
+​    -> END$$
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter;　　#将语句的结束符号恢复为分号
+```
+
+#### 调用存储过程删除player_no是57的队员
+
+```
+mysql> call delete_matches(57);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from MATCHES;
++---------+--------+----------+-----+------+
+| MATCHNO | TEAMNO | PLAYERNO | WON | LOST |
++---------+--------+----------+-----+------+
+|       1 |      1 |        6 |   3 |    1 |
+|       8 |      1 |        8 |   0 |    3 |
+|       9 |      2 |       27 |   3 |    2 |
+|      11 |      2 |      112 |   2 |    3 |
++---------+--------+----------+-----+------+
+```
+
+解析：默认情况下，存储过程和默认数据库相关联，如果想指定存储过程创建在某个特定的数据库下，那么在过程名前面加数据库名做前缀。 在定义过程时，使用 DELIMITER $$ 命令将语句的结束符号从分号 ; 临时改为两个 $$，使得过程体中使用的分号被直接传递到服务器，而不会被客户端（如mysql）解释。
+
+## 存储过程的参数
+
+MySQL存储过程的参数用在存储过程的定义，共有三种参数类型,IN,OUT,INOUT,形式如：
+
+```
+CREATE PROCEDURE 存储过程名([[IN |OUT |INOUT ] 参数名 数据类形...])
+```
+
+1. IN 输入参数：表示调用者向过程传入值（传入值可以是字面量或变量）
+
+2. OUT 输出参数：表示过程向调用者传出值(可以返回多个值)（传出值只能是变量）
+
+3. INOUT 输入输出参数：既表示调用者向过程传入值，又表示过程向调用者传出值（值只能是变量）
+
+
+### 1、in 输入参数
+
+```
+mysql> delimiter $$
+   mysql> create procedure in_param(in p_in int)
+   ​    -> begin
+   ​    -> 　　select p_in;
+   ​    -> 　　set p_in=2;
+   ​    ->    select P_in;
+   ​    -> end$$
+   mysql> delimiter ;
+
+mysql> set @p_in=1;
+
+mysql> call in_param(@p_in);
++------+
+| p_in |
++------+
+|    1 |
++------+
+
++------+
+| P_in |
++------+
+|    2 |
++------+
+
+mysql> select @p_in;
++-------+
+| @p_in |
++-------+
+|     1 |
++-------+
+```
+
+以上可以看出，p_in 在存储过程中被修改，但并不影响 @p_in 的值，因为前者为局部变量、后者为全局变量。
+
+### 2、out输出参数
+
+```
+mysql> delimiter //
+mysql> create procedure out_param(out p_out int)
+​    ->   begin
+​    ->     select p_out;
+​    ->     set p_out=2;
+​    ->     select p_out;
+​    ->   end
+​    -> //
+mysql> delimiter ;
+
+mysql> set @p_out=1;
+
+mysql> call out_param(@p_out);
++-------+
+| p_out |
++-------+
+|  NULL |
++-------+
+　　#因为out是向调用者输出参数，不接收输入的参数，所以存储过程里的p_out为null
++-------+
+| p_out |
++-------+
+|     2 |
++-------+
+
+mysql> select @p_out;
++--------+
+| @p_out |
++--------+
+|      2 |
++--------+
+```
+
+　　#调用了out_param存储过程，输出参数，改变了p_out变量的值
+
+### 3、inout输入参数
+
+```
+mysql> delimiter $$
+mysql> create procedure inout_param(inout p_inout int)
+    ->   begin
+    ->     select p_inout;
+    ->     set p_inout=2;
+    ->     select p_inout;
+    ->   end
+    -> $$
+mysql> delimiter ;
+
+mysql> set @p_inout=1;
+
+mysql> call inout_param(@p_inout);
++---------+
+| p_inout |
++---------+
+|       1 |
++---------+
+
++---------+
+| p_inout |
++---------+
+|       2 |
++---------+
+
+mysql> select @p_inout;
++----------+
+| @p_inout |
++----------+
+|        2 |
++----------+
+#调用了inout_param存储过程，接受了输入的参数，也输出参数，改变了变量
+```
+
+**注意：**
+
+1、如果过程没有参数，也必须在过程名后面写上小括号例：
+
+```
+CREATE PROCEDURE sp_name ([proc_parameter[,...]]) ……
+```
+
+2、确保参数的名字不等于列的名字，否则在过程体中，参数名被当做列名来处理
+
+**建议：**
+
+- 输入值使用in参数。
+- 返回值使用out参数。-
+- inout参数就尽量的少用。
+
+## 存储过程中变量
+
+### 变量定义
+
+局部变量声明一定要放在存储过程体的开始
+
+```
+DECLAREvariable_name [,variable_name...] datatype [DEFAULT value];
+```
+
+其中，datatype 为 MySQL 的数据类型，如: int, float, date,varchar(length)
+例如:
+
+```
+DECLARE l_int int unsigned default 4000000;  
+DECLARE l_numeric number(8,2) DEFAULT 9.95;  
+DECLARE l_date date DEFAULT '1999-12-31';  
+DECLARE l_datetime datetime DEFAULT '1999-12-31 23:59:59';  
+DECLARE l_varchar varchar(255) DEFAULT 'This will not be padded';
+```
+
+### 变量赋值
+
+```
+SET 变量名 = 表达式值 [,variable_name = expression ...]
+```
+
+### 用户变量
+
+在MySQL客户端使用用户变量:
+
+```
+mysql > SELECT 'Hello World' into @x;  
+mysql > SELECT @x;  
++-------------+  
+|   @x        |  
++-------------+  
+| Hello World |  
++-------------+  
+mysql > SET @y='Goodbye Cruel World';  
+mysql > SELECT @y;  
++---------------------+  
+|     @y              |  
++---------------------+  
+| Goodbye Cruel World |  
++---------------------+  
+
+mysql > SET @z=1+2+3;  
+mysql > SELECT @z;  
++------+  
+| @z   |  
++------+  
+|  6   |  
++------+
+```
+
+在存储过程中使用用户变量
+
+```
+mysql > CREATE PROCEDURE GreetWorld( ) SELECT CONCAT(@greeting,' World');  
+mysql > SET @greeting='Hello';  
+mysql > CALL GreetWorld( );  
++----------------------------+  
+| CONCAT(@greeting,' World') |  
++----------------------------+  
+|  Hello World               |  
++----------------------------+
+```
+
+在存储过程间传递全局范围的用户变量
+
+```
+mysql> CREATE PROCEDURE p1()   SET @last_procedure='p1';  
+mysql> CREATE PROCEDURE p2() SELECT CONCAT('Last procedure was ',@last_procedure);  
+mysql> CALL p1( );  
+mysql> CALL p2( );  
++-----------------------------------------------+  
+| CONCAT('Last procedure was ',@last_proc       |  
++-----------------------------------------------+  
+| Last procedure was p1                         |  
+ +-----------------------------------------------+
+```
+
+**注意:**
+
+1、用户变量名一般以@开头
+2、滥用用户变量会导致程序难以理解及管理
+
+### 变量作用域
+
+内部的变量在其作用域范围内享有更高的优先权，当执行到 end。变量时，内部变量消失，此时已经在其作用域外，变量不再可见了，应为在存储过程外再也不能找到这个申明的变量，但是你可以通过 out 参数或者将其值指派给会话变量来保存其值。
+
+```
+	mysql > DELIMITER //  
+mysql > CREATE PROCEDURE proc3()  
+     -> begin 
+     -> declare x1 varchar(5) default 'outer';  
+     -> begin 
+     -> declare x1 varchar(5) default 'inner';  
+      -> select x1;  
+      -> end;  
+       -> select x1;  
+     -> end;  
+     -> //  
+mysql > DELIMITER ;
+```
+
+
+
+## 存储过程的注释
+
+MySQL 存储过程可使用两种风格的注释
+
+两个横杆--：该风格一般用于单行注释。
+
+c 风格： 一般用于多行注释。
+例如：
+
+```
+mysql > DELIMITER //  
+mysql > CREATE PROCEDURE proc1 --name存储过程名  
+     -> (IN parameter1 INTEGER)   
+     -> BEGIN   
+     -> DECLARE variable1 CHAR(10);   
+     -> IF parameter1 = 17 THEN   
+     -> SET variable1 = 'birds';   
+     -> ELSE 
+     -> SET variable1 = 'beasts';   
+    -> END IF;   
+    -> INSERT INTO table1 VALUES (variable1);  
+    -> END   
+    -> //  
+mysql > DELIMITER ;
+```
+
+## MySQL存储过程的查询
+
+我们像知道一个数据库下面有那些表，我们一般采用 showtables; 进行查看。那么我们要查看某个数据库下面的存储过程，是否也可以采用呢？答案是，我们可以查看某个数据库下面的存储过程，但是是另一钟方式。
+
+我们可以用以下语句进行查询：
+
+```
+selectname from mysql.proc where db='数据库名';
+
+或者
+
+selectroutine_name from information_schema.routines where routine_schema='数据库名';
+
+或者
+
+showprocedure status where db='数据库名';
+```
+
+如果我们想知道，某个存储过程的详细，那我们又该怎么做呢？是不是也可以像操作表一样用describe 表名进行查看呢？
+
+答案是：我们可以查看存储过程的详细，但是需要用另一种方法：
+
+```
+SHOWCREATE PROCEDURE 数据库.存储过程名;
+```
+
+## MySQL存储过程的修改
+
+```
+ALTER PROCEDURE
+```
+
+更改用 CREATE PROCEDURE 建立的预先指定的存储过程，其不会影响相关存储过程或存储功能。
+
+## MySQL存储过程的删除
+
+删除一个存储过程比较简单，和删除表一样：
+
+```
+DROP PROCEDURE
+```
+
+## MySQL存储过程的控制语句
+
+### 条件语句
+
+#### if-then-else 语句
+
+```
+mysql > DELIMITER //  
+mysql > CREATE PROCEDURE proc2(IN parameter int)  
+     -> begin 
+     -> declare var int;  
+     -> set var=parameter+1;  
+     -> if var=0 then 
+     -> insert into t values(17);  
+     -> end if;  
+     -> if parameter=0 then 
+     -> update t set s1=s1+1;  
+     -> else 
+     -> update t set s1=s1+2;  
+     -> end if;  
+     -> end;  
+     -> //  
+mysql > DELIMITER ;
+```
+
+#### case语句
+
+```
+mysql > DELIMITER //  
+mysql > CREATE PROCEDURE proc3 (in parameter int)  
+     -> begin 
+     -> declare var int;  
+     -> set var=parameter+1;  
+     -> case var  
+     -> when 0 then   
+     -> insert into t values(17);  
+     -> when 1 then   
+     -> insert into t values(18);  
+     -> else   
+     -> insert into t values(19);  
+     -> end case;  
+     -> end;  
+     -> //  
+mysql > DELIMITER ; 
+case
+    when var=0 then
+        insert into t values(30);
+    when var>0 then
+    when var<0 then
+    else
+end case
+```
+
+### 循环语句
+
+#### while ···· end while
+
+```
+while 条件 do
+    --循环体
+end while
+```
+
+```
+mysql > DELIMITER //  
+mysql > CREATE PROCEDURE proc4()  
+     -> begin 
+     -> declare var int;  
+     -> set var=0;  
+     -> while var<6 do  
+     -> insert into t values(var);  
+     -> set var=var+1;  
+     -> end while;  
+     -> end;  
+     -> //  
+mysql > DELIMITER ;
+```
+
+#### repeat···· end repeat
+
+它在执行操作后检查结果，而 while 则是执行前进行检查。
+
+```
+repeat
+    --循环体
+until 循环条件  
+end repeat;
+```
+
+​					
+
+```
+mysql > DELIMITER //  
+mysql > CREATE PROCEDURE proc5 ()  
+     -> begin   
+     -> declare v int;  
+     -> set v=0;  
+     -> repeat  
+     -> insert into t values(v);  
+     -> set v=v+1;  
+     -> until v>=5  
+     -> end repeat;  
+     -> end;  
+     -> //  
+mysql > DELIMITER ;
+```
+
+#### loop ·····endloop
+
+loop 循环不需要初始条件，这点和 while 循环相似，同时和 repeat 循环一样不需要结束条件, leave 语句的意义是离开循环。
+					
+
+```
+mysql > DELIMITER //  
+mysql > CREATE PROCEDURE proc6 ()  
+     -> begin 
+     -> declare v int;  
+     -> set v=0;  
+     -> LOOP_LABLE:loop  
+     -> insert into t values(v);  
+     -> set v=v+1;  
+     -> if v >=5 then 
+     -> leave LOOP_LABLE;  
+     -> end if;  
+     -> end loop;  
+     -> end;  
+     -> //  
+mysql > DELIMITER ;
+```
+
+#### LABLES 标号
+
+标号可以用在 begin repeat while 或者 loop 语句前，语句标号只能在合法的语句前面使用。可以跳出循环，使运行指令达到复合语句的最后一步。
+
+#### ITERATE迭代
+
+ITERATE 通过引用复合语句的标号,来从新开始复合语句:
+
+```
+mysql > DELIMITER //  
+mysql > CREATE PROCEDURE proc10 ()  
+     -> begin 
+     -> declare v int;  
+     -> set v=0;  
+     -> LOOP_LABLE:loop  
+     -> if v=3 then   
+     -> set v=v+1;  
+     -> ITERATE LOOP_LABLE;  
+     -> end if;  
+     -> insert into t values(v);  
+     -> set v=v+1;  
+     -> if v>=5 then 
+     -> leave LOOP_LABLE;  
+     -> end if;  
+     -> end loop;  
+     -> end;  
+     -> //  
+mysql > DELIMITER ;
+```
+
+## MySQL存储过程的游标
+
+### MySQL中使用fetch关键字来使用光标，语法形式
+
+​			
+
+```
+Fetch cur_name intovar_name[,var_name…]; 
+Cur_name表示光标的名称 
+Var_name表示将光标中的select语句查询出来的信息存入该参数。Var_name必须在声明光标前就定义好。 
+Fetch cur_employee intoemp_name,emp_age; 
+```
+
+### 使用范例
+
+#### 将表test_cur1数据复制到test_cur2准备数据表和数据
+
+```
+CREATE TABLE `test_cur1` ( 
+ `id` int(11) NOT NULL auto_increment, 
+ `type` char(11) default NULL, 
+ `order1` char(11) default NULL, 
+ PRIMARY KEY (`id`) 
+) 
+INSERT INTO `test_cur1` VALUES (1, '145', 'd1'); 
+INSERT INTO `test_cur1` VALUES (2, '134', '1d'); 
+INSERT INTO `test_cur1` VALUES (3, '123', '1ad'); 
+INSERT INTO `test_cur1` VALUES (4, '121', '1as'); 
+
+CREATE TABLE `test_cur2` ( 
+ `id` int(11) NOT NULL auto_increment, 
+ `type` char(11) default NULL, 
+ `order1` char(11) default NULL, 
+ PRIMARY KEY (`id`) 
+) 
+```
+
+#### 编写存储过程使用游标
+
+```
+create procedure get_cur () 
+BEGIN
+ DECLARE done INT DEFAULT 0; 
+ DECLARE ID int(11); 
+ DECLARE type char(11); 
+ DECLARE order1 char(11); 
+ DECLARE mycur CURSOR FOR SELECT * FROM test_cur1;//定义光标 
+ DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = 1; 
+ //打开光标 
+ OPEN mycur; 
+ //开始循环 
+ REPEAT 
+ FETCH mycur INTO ID,type,order1;//取出光标的内容到临时变量 
+ IF NOT done THEN
+ INSERT INTO test_cur2 VALUES (ID,type,order1);//插入到另一张表 
+ END IF; 
+ UNTIL done END REPEAT;//当done=1时结束循环 
+ //关闭光标 
+ CLOSE mycur; 
+END
+```
+
+#### 调用存储过程	
+
+```
+call get_cur()
+```
+
+参考资料
+
+​		https://www.runoob.com/w3cnote/mysql-stored-procedure.html
+​		https://www.cnblogs.com/mark-chan/p/5384139.html
+​		https://www.jb51.net/article/70677.htm
+
+# MySQL触发器
+
+## 什么是触发器
+
+​		触发器是与表有关的数据库对象，在满足定义条件时触发，并执行触发器中定义的语句集合。触发器的这种特性可以协助应用在数据库端确保数据的完整性。
+​		举个例子，比如你现在有两个表【用户表】和【日志表】，当一个用户被创建的时候，就需要在日志表中插入创建的log日志，如果在不使用触发器的情况下，你需要编写程序语言逻辑才能实现，但是如果你定义了一个触发器，触发器的作用就是当你在用户表中插入一条数据的之后帮你在日志表中插入一条日志信息。当然触发器并不是只能进行插入操作，还能执行修改，删除。
+
+## 创建触发器
+
+### 语法规则
+
+```
+CREATE TRIGGER trigger_name trigger_time trigger_event ON tb_name FOR EACH ROW trigger_stmt
+trigger_name：触发器的名称
+tirgger_time：触发时机，为BEFORE或者AFTER
+trigger_event：触发事件，为INSERT、DELETE或者UPDATE
+tb_name：表示建立触发器的表明，就是在哪张表上建立触发器
+trigger_stmt：触发器的程序体，可以是一条SQL语句或者是用BEGIN和END包含的多条语句
+所以可以说MySQL创建以下六种触发器：
+BEFORE INSERT,BEFORE DELETE,BEFORE UPDATE
+AFTER INSERT,AFTER DELETE,AFTER UPDATE
+				其中，触发器名参数指要创建的触发器的名字
+				BEFORE和AFTER参数指定了触发执行的时间，在事件之前或是之后
+				FOR EACH ROW表示任何一条记录上的操作满足触发事件都会触发该触发器
+			创建有多个执行语句的触发器
+				CREATE TRIGGER 触发器名 BEFORE|AFTER 触发事件
+ON 表名 FOR EACH ROW
+BEGIN
+    执行语句列表
+END
+```
+
+其中，BEGIN与END之间的执行语句列表参数表示需要执行的多个语句，不同语句用分号隔开
+一般情况下，mysql默认是以 ; 作为结束执行语句，与触发器中需要的分行起冲突
+
+为解决此问题可用DELIMITER，如：DELIMITER ||，可以将结束符号变成||
+
+当触发器创建完成后，可以用DELIMITER ;来将结束符号变成;
+
+```
+mysql> DELIMITER ||
+mysql> CREATE TRIGGER demo BEFORE DELETE
+    -> ON users FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO logs VALUES(NOW());
+    -> INSERT INTO logs VALUES(NOW());
+    -> END
+    -> ||
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> DELIMITER ;
+```
+
+上面的语句中，开头将结束符号定义为||，中间定义一个触发器，一旦有满足条件的删除操作
+
+就会执行BEGIN和END中的语句，接着使用||结束
+
+最后使用DELIMITER ; 将结束符号还原
+
+### 触发器事件类型trigger_event
+
+#### INSERT型触发器
+
+激活触发器条件
+
+- INSERT
+- LOAD DATA
+- REPLACE
+
+load data语句是将文件的内容插入到表中，相当于是insert语句，而replace语句在一般的情况下和insert差不多，但是如果表中存在primary 或者unique索引的时候，如果插入的数据和原来的primary key或者unique相同的时候，会删除原来的数据，然后增加一条新的数据，所以有的时候执行一条replace语句相当于执行了一条delete和insert语句。
+
+#### UPDATE型触发器
+
+激活触发器条件
+
+- UPDATE
+
+#### DELETE型触发器
+
+激活触发器条件
+
+- DELETE
+- REPLACE
+
+### NEW和OLD的使用
+
+#### INSERT型触发器
+
+NEW表示将要或者已经新增的数据
+
+#### UPDATE型触发器
+
+OLD表示将要或者已经删除的数据，NEW表示将要或者已经修改的数据
+
+#### DELETE型触发器
+
+OLD表示将要或者已经删除的数据
+可以使用一下格式来使用相应的数据			
+
+```
+NEW.columnname：新增行的某列数据
+OLD.columnname：删除行的某列数据
+```
+
+### 查看触发器
+
+```
+SHOW TRIGGERS
+```
+
+**注：SHOW TRIGGERS语句无法查询指定的触发器**
+
+```
+SELECT * FROM information_schema.triggers;
+```
+
+所有触发器信息都存储在information_schema数据库下的triggers表中 ,可以使用SELECT语句查询，如果触发器信息过多，最好通过TRIGGER_NAME字段指定查询。
+
+### 删除触发器
+
+```
+DROP TRIGGER [IF EXISTS] [schema_name.]trigger_name
+```
+
+### 使用示例
+
+#### 用户users表
+
+```
+CREATE TABLE `users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `add_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `name` (`name`(250)) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=1000001 DEFAULT CHARSET=latin1;
+```
+
+#### 日志logs表
+
+```
+CREATE TABLE `logs` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `log` varchar(255) DEFAULT NULL COMMENT '日志说明',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='日志表';
+```
+
+#### 需求
+
+当在users中插入一条数据，就会在logs中生成一条日志信息。
+
+#### 创建触发器
+
+```
+DELIMITER $
+CREATE TRIGGER user_log AFTER INSERT ON users FOR EACH ROW
+BEGIN
+DECLARE s1 VARCHAR(40)character set utf8;
+DECLARE s2 VARCHAR(20) character set utf8;#后面发现中文字符编码出现乱码，这里设置字符集
+SET s2 = " is created";
+SET s1 = CONCAT(NEW.name,s2);     #函数CONCAT可以将字符串连接
+INSERT INTO logs(log) values(s1);
+END $
+DELIMITER ;
+```
+
+## 限制和注意事项
+
+1. 触发程序不能调用将数据返回客户端的存储程序，也不能使用采用CALL语句的动态SQL语句，但是允许存储程序通过参数将数据返回触发程序，也就是存储过程或者函数通过OUT或者INOUT类型的参数将数据返回触发器是可以的，但是不能调用直接返回数据的过程。
+
+2. 不能再触发器中使用以显示或隐式方式开始或结束事务的语句，如START TRANS-ACTION,COMMIT或ROLLBACK。
+   		
+
+注意事项：MySQL的触发器是按照BEFORE触发器、行操作、AFTER触发器的顺序执行的，其中任何一步发生错误都不会继续执行剩下的操作，如果对事务表进行的操作，如果出现错误，那么将会被回滚，如果是对非事务表进行操作，那么就无法回滚了，数据可能会出错。
+
+参考资料
+		https://www.cnblogs.com/geaozhang/p/6819648.html
+		https://www.cnblogs.com/zh-1721342390/p/9602941.html
